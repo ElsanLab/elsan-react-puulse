@@ -5,17 +5,17 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "src/puulse/puulse-pro.css",
+    "css": "src/themes/base.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
-    "components": "@/puulse/components",
-    "utils": "@/puulse/lib/utils",
-    "ui": "@/puulse/components/ui",
-    "lib": "@/puulse/lib",
-    "hooks": "@/puulse/hooks"
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
   },
   "iconLibrary": "lucide"
 }
