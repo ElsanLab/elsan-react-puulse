@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/puulse/puulse-pro.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/puulse/components",
+    "utils": "@/puulse/lib/utils",
+    "ui": "@/puulse/components/ui",
+    "lib": "@/puulse/lib",
+    "hooks": "@/puulse/hooks"
+  },
+  "iconLibrary": "lucide"
+}

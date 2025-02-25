@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig",
+  "exclude": ["src/demo", "dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
