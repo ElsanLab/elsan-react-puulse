@@ -21,9 +21,8 @@
   "scripts": {
     "dev": "vite",
     "build": "./build.sh",
-    "build:types": "tsc -b && rollup -c rollup.dts.config.js",
+    "build:types": "tsc -p tsconfig.build.json && rollup -c rollup.dts.config.js",
     "build:themes:pro": "npx @tailwindcss/cli -i ./src/themes/pro.css -o ./dist/themes/pro.css",
-    "build:themes:public": "npx @tailwindcss/cli -i ./src/themes/public.css -o ./dist/themes/public.css",
     "build:components": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",

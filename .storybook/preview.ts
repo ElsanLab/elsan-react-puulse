@@ -6,10 +6,10 @@ export const globalTypes = {
   theme: {
     name: "Theme",
     description: "Sélection du thème",
-    defaultValue: "public",
+    defaultValue: "pro",
     toolbar: {
       icon: "paintbrush",
-      items: ["public", "pro"],
+      items: ["pro"],
       showName: true,
     },
   },
