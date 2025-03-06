@@ -9,15 +9,6 @@
   font-stretch: normal;
 }
 
-@font-face {
-  font-family: "Omnes";
-  src: url("../fonts/Omnes-Regular.otf");
-  font-display: auto;
-  font-style: normal;
-  font-weight: 500;
-  font-stretch: normal;
-}
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
