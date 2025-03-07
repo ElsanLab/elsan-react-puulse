@@ -1,19 +1,19 @@
 import type { Preview } from "@storybook/react";
-// import "../src/themes/pro.css";
+import "../src/themes/pro.css";
 import { ThemeDecorator } from "../src/stories/themeDecorator";
 
-export const globalTypes = {
-  theme: {
-    name: "Theme",
-    description: "Sélection du thème",
-    defaultValue: "pro",
-    toolbar: {
-      icon: "paintbrush",
-      items: ["pro"],
-      showName: true,
-    },
-  },
-};
+// export const globalTypes = {
+//   theme: {
+//     name: "Theme",
+//     description: "Sélection du thème",
+//     defaultValue: "pro",
+//     toolbar: {
+//       icon: "paintbrush",
+//       items: ["pro"],
+//       showName: true,
+//     },
+//   },
+// };
 
 const preview: Preview = {
   tags: ["autodocs"],
@@ -25,7 +25,6 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [ThemeDecorator],
 };
 
 export default preview;
