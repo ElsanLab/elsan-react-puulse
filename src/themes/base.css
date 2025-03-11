@@ -24,3 +24,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+.react-colorful {
+  width: auto !important;
+  height: auto !important;
+}
+
+.react-colorful__saturation {
+  display: none !important;
+}
+
+.react-colorful__last-control {
+  border-radius: 8px !important;
+}
