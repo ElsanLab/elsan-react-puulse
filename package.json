@@ -45,7 +45,7 @@
     "date-fns": "^4.1.0",
     "lucide-react": "^0.477.0",
     "react": "^19.0.0",
-    "react-day-picker": "8.10.1",
+    "react-day-picker": "9.6.1",
     "react-dom": "^19.0.0",
     "react-select": "^5.10.1",
     "tailwind-merge": "^3.0.2",
@@ -83,9 +83,9 @@
     "vitest": "^3.0.7"
   },
   "peerDependencies": {
+    "date-fns": "^4.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "date-fns": "^4.1.0"
+    "react-dom": "^19.0.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
