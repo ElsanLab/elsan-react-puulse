@@ -10,6 +10,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Matcher } from "react-day-picker";
 
 type DatePickerProps = {
   placeholder?: string;
@@ -49,6 +50,22 @@ const DatePicker: React.FC<DatePickerProps> = ({
     setDate(val);
   };
 
+  const hidden: Matcher | Matcher[] | undefined = React.useMemo(() => {
+    if (!min && !max) {
+      return undefined;
+    }
+
+    const hddn = [];
+    if (min) {
+      hddn.push({ before: min });
+    }
+    if (max) {
+      hddn.push({ after: max });
+    }
+
+    return hddn;
+  }, [min, max]);
+
   return (
     <Popover>
       <DatePickerTrigger asChild>
@@ -69,11 +86,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
           locale={locale}
           selected={date}
           onSelect={handleSelect}
-          initialFocus
+          autoFocus
           // captionLayout="dropdown"
           fixedWeeks
-          fromDate={min}
-          toDate={max}
+          hidden={hidden}
         />
       </PopoverContent>
     </Popover>
