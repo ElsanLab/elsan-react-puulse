@@ -4,7 +4,13 @@ import { User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface BadgeStoryArgs {
-  variant: "neutral" | "info" | "success" | "warning" | "destructive";
+  variant:
+    | "neutral"
+    | "primary"
+    | "info"
+    | "success"
+    | "warning"
+    | "destructive";
   text: string;
   withIcon: boolean;
 }
@@ -17,7 +23,14 @@ const meta = {
       control: {
         type: "select",
       },
-      options: ["neutral", "info", "success", "warning", "destructive"],
+      options: [
+        "neutral",
+        "primary",
+        "info",
+        "success",
+        "warning",
+        "destructive",
+      ],
       table: {
         defaultValue: { summary: "neutral" },
       },

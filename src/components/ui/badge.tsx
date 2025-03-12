@@ -9,10 +9,15 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        neutral: "bg-neutral-light border-neutral-light-foreground/20 text-neutral-light-foreground",
+        neutral:
+          "bg-neutral-light border-neutral-light-foreground/20 text-neutral-light-foreground",
+        primary:
+          "bg-primary-light border-primary-light-foreground/20 text-primary-light-foreground",
         info: "bg-info-light border-info-light-foreground/20 text-info-light-foreground",
-        success: "bg-success-light border-success-light-foreground/20 text-success-light-foreground",
-        warning: "bg-warning-light border-warning-light-foreground/20 text-warning-light-foreground",
+        success:
+          "bg-success-light border-success-light-foreground/20 text-success-light-foreground",
+        warning:
+          "bg-warning-light border-warning-light-foreground/20 text-warning-light-foreground",
         destructive:
           "bg-destructive-light border-destructive-light-foreground/20 text-destructive-light-foreground",
       },
