@@ -9,6 +9,7 @@ import {
 
 interface TooltipStoryArgs {
   text: string;
+  side: "top" | "right" | "bottom" | "left" | undefined;
 }
 
 const meta = {
@@ -21,17 +22,35 @@ export default meta;
 type Story = StoryObj<TooltipStoryArgs>;
 
 export const Default: Story = {
+  argTypes: {
+    text: {
+      control: {
+        type: "text",
+      },
+      table: {
+        defaultValue: { summary: "Mon tooltip" },
+      },
+    },
+    side: {
+      control: {
+        type: "radio",
+      },
+      options: ["top", "right", "bottom", "left"],
+      table: {
+        defaultValue: { summary: "top" },
+      },
+    },
+  },
   args: {
     text: "Mon tooltip",
+    side: "top",
   },
   render: function Render(args) {
     return (
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>Hover</TooltipTrigger>
-          <TooltipContent>
-            {args.text}
-          </TooltipContent>
+          <TooltipContent side={args.side}>{args.text}</TooltipContent>
         </Tooltip>
       </TooltipProvider>
     );
