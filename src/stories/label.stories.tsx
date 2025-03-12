@@ -24,12 +24,9 @@ export const Default: Story = {
     required: false,
   },
   render: function Render(args) {
-    const id = useId();
     return (
       <div className="space-y-2">
-        <Label htmlFor={id} required={args.required}>
-          {args.text}
-        </Label>
+        <Label required={args.required}>{args.text}</Label>
       </div>
     );
   },
