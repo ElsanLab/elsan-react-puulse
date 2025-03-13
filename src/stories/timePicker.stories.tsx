@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { TimePicker } from "@/components/compound/timePicker";
-import { useState } from "react";
 
 interface StoryArgs {
   disabled: boolean;
