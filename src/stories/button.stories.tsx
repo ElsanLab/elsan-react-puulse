@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { User } from "lucide-react";
+import { Ambulance } from "lucide-react";
 
 type StoryArgs = {
   variant:
@@ -58,9 +58,9 @@ const meta = {
           onClick={() => setCount(count + 1)}
           contentType={args.contentType}
         >
-          {args.icon?.includes("Left") && <User />}
+          {args.icon?.includes("Left") && <Ambulance />}
           {args.children}
-          {args.icon?.includes("Right") && <User />}
+          {args.icon?.includes("Right") && <Ambulance />}
         </Button>
         <div>Clicked {count} times</div>
       </div>
@@ -100,6 +100,6 @@ export const IconOnly: Story = {
     variant: "primary",
     size: "md",
     contentType: "icon",
-    children: <User />,
+    children: <Ambulance />,
   },
 };

@@ -128,3 +128,8 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/** Time picker */
+input[type="time"]::-webkit-clear-button {
+  display: none;
+}
