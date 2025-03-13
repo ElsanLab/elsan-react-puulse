@@ -1,9 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { User } from "lucide-react";
+
+type StoryArgs = {
+  variant:
+    | "primary"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
+  size: "sm" | "md" | "lg";
+  children: React.ReactNode;
+  icon?: string[];
+  contentType?: "default" | "icon";
+};
 
 const meta = {
-  title: "To do/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     variant: {
@@ -11,7 +27,7 @@ const meta = {
         type: "select",
       },
       options: [
-        "default",
+        "primary",
         "destructive",
         "outline",
         "secondary",
@@ -19,41 +35,71 @@ const meta = {
         "link",
       ],
       table: {
-        defaultValue: { summary: "default" },
+        defaultValue: { summary: "primary" },
       },
     },
     size: {
       control: {
-        type: "select",
+        type: "inline-radio",
       },
-      options: ["default", "sm", "lg", "icon"],
+      options: ["sm", "md", "lg"],
       table: {
-        defaultValue: { summary: "default" },
+        defaultValue: { summary: "md" },
       },
     },
-    asChild: {
+  },
+  render: (args) => {
+    const [count, setCount] = useState(0);
+    return (
+      <div className="flex items-center gap-x-4">
+        <Button
+          variant={args.variant}
+          size={args.size}
+          onClick={() => setCount(count + 1)}
+          contentType={args.contentType}
+        >
+          {args.icon?.includes("Left") && <User />}
+          {args.children}
+          {args.icon?.includes("Right") && <User />}
+        </Button>
+        <div>Clicked {count} times</div>
+      </div>
+    );
+  },
+} satisfies Meta<StoryArgs>;
+
+export default meta;
+
+type Story = StoryObj<StoryArgs>;
+
+export const Default: Story = {
+  argTypes: {
+    icon: {
+      control: {
+        type: "inline-check",
+      },
+      options: ["Left", "Right"],
+    },
+  },
+  args: {
+    children: "Button",
+    variant: "primary",
+    size: "md",
+  },
+};
+
+export const IconOnly: Story = {
+  argTypes: {
+    children: {
       table: {
         disable: true,
       },
     },
-    children: {
-      control: {
-        type: "text",
-      },
-      defaultValue: "Button",
-      table: {
-        defaultValue: { summary: "button" },
-      },
-    },
   },
-} satisfies Meta<typeof Button>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
   args: {
-    children: "Button",
+    variant: "primary",
+    size: "md",
+    contentType: "icon",
+    children: <User />,
   },
 };
