@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { DatePicker } from "@/components/compound/datePicker";
+import { fr, enUS } from "date-fns/locale";
 
 interface StoryArgs {
   placeholder: string;
   dateFormat: string;
   min: Date | undefined;
   max: Date | undefined;
+  locale: string;
 }
 
 const meta = {
@@ -23,12 +25,17 @@ const meta = {
       description: "Date format in the 'trigger' component",
       defaultValue: "dd/MM/yyyy",
     },
-    children: {
+    locale: {
+      control: { type: "select" },
+      options: ["enUS", "fr"],
+      description:
+        "Select the calendar's language. The default is English (enUS). It uses date-fns locales.",
       table: {
-        disable: true,
+        defaultValue: {
+          summary: "fr",
+        },
       },
     },
-
     selected: {
       table: {
         disable: true,
@@ -69,6 +76,7 @@ export const Default: Story = {
     dateFormat: "dd/MM/yyyy",
     min: undefined,
     max: undefined,
+    locale: "fr",
   },
   render: (args) => {
     return (
@@ -77,6 +85,7 @@ export const Default: Story = {
         dateFormat={args.dateFormat}
         min={args.min}
         max={args.max}
+        locale={args.locale === "fr" ? fr : enUS}
       />
     );
   },
