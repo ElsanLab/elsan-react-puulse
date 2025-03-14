@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CircleAlert, CircleCheck, InfoIcon, TriangleAlert } from "lucide-react";
+import {
+  CircleAlert,
+  CircleCheck,
+  InfoIcon,
+  TriangleAlert,
+} from "lucide-react";
 
 interface ALertStoryArgs {
   variant: "info" | "success" | "warning" | "destructive";
@@ -59,11 +64,13 @@ export const Default: Story = {
     }
 
     return (
-      <Alert variant={args.variant}>
-        {args.withIcon && <Icon className="size-4" />}
-        {args.title && <AlertTitle>{args.title}</AlertTitle>}
-        <AlertDescription>{args.description}</AlertDescription>
-      </Alert>
+      <>
+        <Alert variant={args.variant}>
+          {args.withIcon && <Icon className="size-4" />}
+          {args.title && <AlertTitle>{args.title}</AlertTitle>}
+          <AlertDescription>{args.description}</AlertDescription>
+        </Alert>
+      </>
     );
   },
 };
