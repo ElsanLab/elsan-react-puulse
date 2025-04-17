@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
-import "../src/themes/pro.css";
 import "../src/themes/base.css";
+import "../src/themes/pro.css";
 // import { ThemeDecorator } from "../src/stories/themeDecorator";
 
 // export const globalTypes = {

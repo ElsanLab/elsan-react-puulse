@@ -1,5 +1,5 @@
 import { Input } from "@/components/ui/input";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { Minus, Plus } from "lucide-react";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -58,11 +58,11 @@ const NumberPicker: React.FC<NumberInputProps> = ({
   };
 
   return (
-    <div className="relative">
+    <div className="ep:relative">
       <Input
         {...props}
         ref={inputRef}
-        className={cn("text-center", className)}
+        className={cn("ep:text-center", className)}
         type="number"
         min={min}
         max={max}
@@ -70,7 +70,7 @@ const NumberPicker: React.FC<NumberInputProps> = ({
       />
       <Button
         variant="link"
-        className="absolute top-1/2 -translate-y-1/2 left-0 text-muted-foreground"
+        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:left-0 ep:text-muted-foreground"
         disabled={disabled}
         onMouseDown={startDecreasing}
         onMouseUp={stop}
@@ -80,7 +80,7 @@ const NumberPicker: React.FC<NumberInputProps> = ({
       </Button>
       <Button
         variant="link"
-        className="absolute top-1/2 -translate-y-1/2 right-0 text-muted-foreground"
+        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:right-0 ep:text-muted-foreground"
         disabled={disabled}
         onMouseDown={startIncreasing}
         onMouseUp={stop}

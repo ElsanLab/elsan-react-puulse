@@ -25,7 +25,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <Label required={args.required}>{args.text}</Label>
       </div>
     );
@@ -40,7 +40,7 @@ export const WithInput: Story = {
   render: function Render(args) {
     const id = useId();
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <Label htmlFor={id} required={args.required}>
           {args.text}
         </Label>

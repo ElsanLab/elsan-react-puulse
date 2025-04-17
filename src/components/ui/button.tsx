@@ -4,21 +4,30 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * Changed variants to 'primary', 'destructive', 'outline', 'secondary', 'ghost', 'link'
+ * Changed sizes to 'sm', 'md', 'lg'
+ * Added contentType variant & compounds with size+contentType
+ * fixed prefix placement
+ *
+ */
+
 const buttonVariants = cva(
-  "inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibol transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "ep:inline-flex ep:items-center ep:justify-center ep:gap-2 ep:whitespace-nowrap ep:rounded-md ep:text-sm ep:font-medium ep:transition-all ep:disabled:pointer-events-none ep:disabled:opacity-50 ep:[&_svg]:pointer-events-none ep:[&_svg:not([class*=size-])]:size-4 ep:shrink-0 ep:[&_svg]:shrink-0 ep:outline-none ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:focus-visible:ring-[3px] ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive",
   {
     variants: {
       variant: {
         primary:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+          "ep:bg-primary ep:text-primary-foreground ep:shadow-xs ep:hover:bg-primary/90",
         destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+          "ep:bg-destructive ep:text-white ep:shadow-xs ep:hover:bg-destructive/90 ep:focus-visible:ring-destructive/20 ep:dark:focus-visible:ring-destructive/40",
         outline:
-          "border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground",
+          "ep:border ep:border-input ep:bg-transparent ep:shadow-xs ep:hover:bg-accent ep:hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "ep:bg-secondary ep:text-secondary-foreground ep:shadow-xs ep:hover:bg-secondary/80",
+        ghost: "ep:hover:bg-accent ep:hover:text-accent-foreground",
+        link: "ep:text-primary ep:underline-offset-4 ep:hover:underline",
       },
       contentType: {
         default: "",
@@ -28,39 +37,39 @@ const buttonVariants = cva(
         sm: "",
         md: "",
         lg: "",
-        // icon: "size-9",
       },
     },
     compoundVariants: [
       {
         size: "sm",
         contentType: "default",
-        className: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+        className:
+          "ep:h-8 ep:rounded-md ep:gap-1.5 ep:px-3 ep:has-[>svg]:px-2.5",
       },
       {
         size: "md",
         contentType: "default",
-        className: "h-9 px-4 py-2 has-[>svg]:px-3",
+        className: "ep:h-9 ep:px-4 ep:py-2 ep:has-[>svg]:px-3",
       },
       {
         size: "lg",
         contentType: "default",
-        className: "h-10 rounded-md px-6 has-[>svg]:px-4",
+        className: "ep:h-10 ep:rounded-md ep:px-6 ep:has-[>svg]:px-4",
       },
       {
         size: "sm",
         contentType: "icon",
-        className: "size-8",
+        className: "ep:size-8",
       },
       {
         size: "md",
         contentType: "icon",
-        className: "size-9",
+        className: "ep:size-9",
       },
       {
         size: "lg",
         contentType: "icon",
-        className: "size-10",
+        className: "ep:size-10",
       },
     ],
     defaultVariants: {
@@ -87,7 +96,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, contentType, className }))}
+      className={cn(buttonVariants({ variant, contentType, size, className }))}
       {...props}
     />
   );

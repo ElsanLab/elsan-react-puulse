@@ -8,7 +8,7 @@ type ColorPickerProps = ColorPickerBaseProps<string> & {
 
 const ColorPicker: React.FC<ColorPickerProps> = ({ className, ...props }) => {
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn("ep:w-full", className)}>
       <HexColorPicker {...props} />
     </div>
   );

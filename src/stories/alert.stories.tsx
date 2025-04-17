@@ -66,7 +66,7 @@ export const Default: Story = {
     return (
       <>
         <Alert variant={args.variant}>
-          {args.withIcon && <Icon className="size-4" />}
+          {args.withIcon && <Icon />}
           {args.title && <AlertTitle>{args.title}</AlertTitle>}
           <AlertDescription>{args.description}</AlertDescription>
         </Alert>

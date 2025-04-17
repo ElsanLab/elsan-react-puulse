@@ -4,7 +4,10 @@ type HelperTextProps = React.HTMLAttributes<HTMLParagraphElement>;
 
 const HelperText: React.FC<HelperTextProps> = ({ className, ...props }) => {
   return (
-    <p className={cn("text-sm text-muted-foreground", className)} {...props} />
+    <p
+      className={cn("ep:text-sm ep:text-muted-foreground", className)}
+      {...props}
+    />
   );
 };
 

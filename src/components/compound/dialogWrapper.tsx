@@ -72,7 +72,7 @@ const DialogWrapperContent: React.FC<
       return (
         <SheetContent
           {...props}
-          className={cn(className, "flex flex-col")}
+          className={cn(className, "ep:flex ep:flex-col")}
           side="right"
         >
           {children}

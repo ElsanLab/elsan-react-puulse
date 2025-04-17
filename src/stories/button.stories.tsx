@@ -51,7 +51,7 @@ const meta = {
   render: (args) => {
     const [count, setCount] = useState(0);
     return (
-      <div className="flex items-center gap-x-4">
+      <div className="ep:flex ep:items-center ep:gap-x-4">
         <Button
           variant={args.variant}
           size={args.size}

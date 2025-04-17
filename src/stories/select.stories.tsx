@@ -96,9 +96,9 @@ export const Default: Story = {
           isSearchable={args.isSearchable}
           isDisabled={args.isDisabled}
         />
-        <div className="mt-4 text-sm">
+        <div className="ep:mt-4 ep:text-sm">
           <p>Selected value:</p>
-          <p className="text-xs">{selectedLabel ?? "none"}</p>
+          <p className="ep:text-xs">{selectedLabel ?? "none"}</p>
         </div>
       </>
     );
@@ -143,12 +143,12 @@ export const Multi: Story = {
           isSearchable={args.isSearchable}
           isDisabled={args.isDisabled}
         />
-        <div className="mt-4 text-sm">
+        <div className="ep:mt-4 ep:text-sm">
           <p>Selected value:</p>
           {selectedLabels.length === 0 && "none"}
 
           {selectedLabels.length > 0 && (
-            <ul className="text-xs">
+            <ul className="ep:text-xs">
               {selectedLabels.map((label, i) => (
                 <li key={i}>{label}</li>
               ))}

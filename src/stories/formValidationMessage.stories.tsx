@@ -24,7 +24,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <FormValidationMessage>{args.text}</FormValidationMessage>
       </div>
     );
@@ -38,7 +38,7 @@ export const WithInput: Story = {
   render: function Render(args) {
     const id = useId();
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <Label htmlFor={id} required>
           First name
         </Label>

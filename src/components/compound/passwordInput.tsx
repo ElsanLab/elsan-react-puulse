@@ -11,7 +11,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="ep:relative">
       <Input
         {...props}
         disabled={disabled}
@@ -20,12 +20,12 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
       <button
         type="button"
         disabled={disabled}
-        className="absolute top-1/2 -translate-y-1/2 right-4 text-muted-foreground"
+        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:right-4 ep:text-muted-foreground"
         onMouseDown={() => setShowPassword(true)}
         onMouseUp={() => setShowPassword(false)}
         onMouseLeave={() => setShowPassword(false)}
       >
-        <Eye className="size-4" />
+        <Eye className="ep:size-4" />
       </button>
     </div>
   );

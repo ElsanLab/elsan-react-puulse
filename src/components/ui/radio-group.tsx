@@ -4,6 +4,14 @@ import { CircleCheck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * Indicator changed to CircleCheck size-3 instead of Circle size-2
+ * Added text-primary-foreground to Indicator
+ * fixed prefix placement
+ *
+ */
+
 function RadioGroup({
   className,
   ...props
@@ -11,7 +19,7 @@ function RadioGroup({
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
-      className={cn("grid gap-3", className)}
+      className={cn("ep:grid ep:gap-3", className)}
       {...props}
     />
   );
@@ -25,16 +33,16 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        "border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        "ep:border-input ep:text-primary ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:dark:bg-input/30 ep:aspect-square ep:size-4 ep:shrink-0 ep:rounded-full ep:border ep:shadow-xs ep:transition-[color,box-shadow] ep:outline-none ep:focus-visible:ring-[3px] ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
         className
       )}
       {...props}
     >
       <RadioGroupPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className="relative flex items-center justify-center"
+        className="ep:relative ep:flex ep:items-center ep:justify-center"
       >
-        <CircleCheck className="fill-primary text-primary-foreground absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2" />
+        <CircleCheck className="ep:fill-primary ep:text-primary-foreground ep:absolute ep:top-1/2 ep:left-1/2 ep:size-4 ep:-translate-x-1/2 ep:-translate-y-1/2" />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   );

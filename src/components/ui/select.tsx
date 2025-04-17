@@ -21,6 +21,12 @@ type SelectProps = {
   isSearchable?: boolean;
 };
 
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * Everything, this is not a shadcn component
+ *
+ */
+
 const Select: React.FC<SelectProps> = ({
   options,
   placeholder = "Sélectionner",
@@ -72,31 +78,31 @@ const Select: React.FC<SelectProps> = ({
       classNames={{
         control: (state) =>
           cn(
-            "bg-transparent! border border-input! rounded-md text-base! md:text-sm! min-h-9! shadow-none!",
+            "ep:bg-transparent! ep:border ep:border-input! ep:rounded-md ep:text-base! ep:md:text-sm! ep:min-h-9! ep:shadow-none!",
             {
-              "ring-1 ring-ring": state.isFocused,
-              "cursor-not-allowed! opacity-50!": state.isDisabled,
+              "ep:ring-1 ep:ring-ring": state.isFocused,
+              "ep:cursor-not-allowed! ep:opacity-50!": state.isDisabled,
             }
           ),
         menu: () =>
-          "bg-popover! border! rounded-md! py-0! overflow-hidden! shadow-md!",
-        menuList: () => "py-0!",
+          "ep:bg-popover! ep:border! ep:rounded-md! ep:py-0! ep:overflow-hidden! ep:shadow-md!",
+        menuList: () => "ep:py-0!",
         option: (state) =>
-          cn("text-foreground! text-base! md:text-sm!", {
-            "bg-muted!": state.isFocused,
-            "text-foreground!": state.isFocused,
-            "bg-primary-light! text-primary-light-foreground!":
+          cn("ep:text-foreground! ep:text-base! ep:md:text-sm!", {
+            "ep:bg-muted!": state.isFocused,
+            "ep:text-foreground!": state.isFocused,
+            "ep:bg-primary-light! ep:text-primary-light-foreground!":
               state.isSelected,
           }),
-        singleValue: () => "text-foreground!",
-        input: () => cn("text-foreground!"),
-        placeholder: () => "text-muted-foreground!",
-        multiValue: () => "bg-muted! text-muted-foreground!",
+        singleValue: () => "ep:text-foreground!",
+        input: () => cn("ep:text-foreground!"),
+        placeholder: () => "ep:text-muted-foreground!",
+        multiValue: () => "ep:bg-muted! ep:text-muted-foreground!",
         multiValueRemove: () =>
-          "text-muted-foreground! hover:bg-destructive-light! hover:text-destructive-light-foreground!",
-        multiValueLabel: () => "text-muted-foreground!",
-        dropdownIndicator: () => "py-0!",
-        clearIndicator: () => "py-0!",
+          "ep:text-muted-foreground! ep:hover:bg-destructive-light! ep:hover:text-destructive-light-foreground!",
+        multiValueLabel: () => "ep:text-muted-foreground!",
+        dropdownIndicator: () => "ep:py-0!",
+        clearIndicator: () => "ep:py-0!",
       }}
       onBlur={onBlurWorkaround}
       placeholder={placeholder}

@@ -72,15 +72,15 @@ const DatePicker: React.FC<DatePickerProps> = ({
         <Button
           variant={"outline"}
           className={cn(
-            "w-fit justify-start text-left font-normal",
-            !date && "text-muted-foreground"
+            "ep:w-fit ep:justify-start ep:text-left ep:font-normal",
+            !date && "ep:text-muted-foreground"
           )}
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
+          <CalendarIcon className="ep:mr-2 ep:h-4 ep:w-4" />
           {date ? format(date, dateFormat) : <span>{placeholder}</span>}
         </Button>
       </DatePickerTrigger>
-      <PopoverContent className="w-auto p-0">
+      <PopoverContent className="ep:w-auto ep:p-0">
         <Calendar
           mode="single"
           locale={locale}

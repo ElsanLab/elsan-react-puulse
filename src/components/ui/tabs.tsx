@@ -1,7 +1,18 @@
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
+"use client";
 
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+
+import { cn } from "@/lib/utils";
+
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * TabsTrigger state active changed background to bg-primary instead of bg-background
+ * TabsTrigger state active changed text color to text-foreground instead of text-primary
+ *
+ * fixed prefix placement
+ *
+ */
 
 function Tabs({
   className,
@@ -10,10 +21,10 @@ function Tabs({
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
-      className={cn("flex flex-col gap-2", className)}
+      className={cn("ep:flex ep:flex-col ep:gap-2", className)}
       {...props}
     />
-  )
+  );
 }
 
 function TabsList({
@@ -24,12 +35,12 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-1",
+        "ep:bg-muted ep:text-muted-foreground ep:inline-flex ep:h-9 ep:w-fit ep:items-center ep:justify-center ep:rounded-lg ep:p-[3px]",
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TabsTrigger({
@@ -40,12 +51,12 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring inline-flex flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "ep:data-[state=active]:bg-primary ep:dark:data-[state=active]:text-primary-foreground ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:focus-visible:outline-ring ep:dark:data-[state=active]:border-input ep:dark:data-[state=active]:bg-input/30 ep:text-foreground ep:dark:text-muted-foreground ep:inline-flex ep:h-[calc(100%-1px)] ep:flex-1 ep:items-center ep:justify-center ep:gap-1.5 ep:rounded-md ep:border ep:border-transparent ep:px-2 ep:py-1 ep:text-sm ep:font-medium ep:whitespace-nowrap ep:transition-[color,box-shadow] ep:focus-visible:ring-[3px] ep:focus-visible:outline-1 ep:disabled:pointer-events-none ep:disabled:opacity-50 ep:data-[state=active]:shadow-sm ep:[&_svg]:pointer-events-none ep:[&_svg]:shrink-0 ep:[&_svg:not([class*=size-])]:size-4",
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TabsContent({
@@ -55,10 +66,10 @@ function TabsContent({
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"
-      className={cn("flex-1 outline-none", className)}
+      className={cn("ep:flex-1 ep:outline-none", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export { Tabs, TabsList, TabsTrigger, TabsContent };

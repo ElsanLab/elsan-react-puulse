@@ -1,7 +1,16 @@
-import * as React from "react"
-import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+import * as React from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
+
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * Changed background to bg-neutral instead of bg-primary
+ * Changed text color to neutral-foreground instead of primary-foreground
+ * Changed arrow color to neutral instead of bg-primary (bg-neutral + fill-neutral)
+ * fixed prefix placement
+ *
+ */
 
 function TooltipProvider({
   delayDuration = 0,
@@ -13,7 +22,7 @@ function TooltipProvider({
       delayDuration={delayDuration}
       {...props}
     />
-  )
+  );
 }
 
 function Tooltip({
@@ -23,13 +32,13 @@ function Tooltip({
     <TooltipProvider>
       <TooltipPrimitive.Root data-slot="tooltip" {...props} />
     </TooltipProvider>
-  )
+  );
 }
 
 function TooltipTrigger({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
 
 function TooltipContent({
@@ -44,16 +53,16 @@ function TooltipContent({
         data-slot="tooltip-content"
         sideOffset={sideOffset}
         className={cn(
-          "bg-neutral text-neutral-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit rounded-md px-3 py-1.5 text-xs text-balance",
+          "ep:bg-neutral ep:text-neutral-foreground ep:animate-in ep:fade-in-0 ep:zoom-in-95 ep:data-[state=closed]:animate-out ep:data-[state=closed]:fade-out-0 ep:data-[state=closed]:zoom-out-95 ep:data-[side=bottom]:slide-in-from-top-2 ep:data-[side=left]:slide-in-from-right-2 ep:data-[side=right]:slide-in-from-left-2 ep:data-[side=top]:slide-in-from-bottom-2 ep:z-50 ep:w-fit ep:origin-(--radix-tooltip-content-transform-origin) ep:rounded-md ep:px-3 ep:py-1.5 ep:text-xs ep:text-balance",
           className
         )}
         {...props}
       >
         {children}
-        <TooltipPrimitive.Arrow className="bg-neutral fill-neutral z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />
+        <TooltipPrimitive.Arrow className="ep:bg-neutral ep:fill-neutral ep:z-50 ep:size-2.5 ep:translate-y-[calc(-50%_-_2px)] ep:rotate-45 ep:rounded-[2px]" />
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>
-  )
+  );
 }
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };

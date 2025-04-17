@@ -55,5 +55,6 @@ jobs:
           name: Release ${{ github.event.inputs.version }}
           body: "Automated release of ${{ github.event.inputs.version }}"
           generate_release_notes: true
+          make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

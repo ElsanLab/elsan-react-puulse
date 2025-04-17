@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" prefix(ep);
 
 @plugin "tailwindcss-animate";
 
@@ -91,10 +91,10 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply ep:border-border ep:outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply ep:bg-background ep:text-foreground;
   }
 }
 

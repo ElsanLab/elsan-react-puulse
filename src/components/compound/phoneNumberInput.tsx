@@ -41,7 +41,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
   ...props
 }) => (
   <RPNInput.default
-    className={cn("flex w-fit", className)}
+    className={cn("ep:flex ep:w-fit", className)}
     flagComponent={FlagComponent}
     countrySelectComponent={CountrySelect}
     countrySelectProps={{ internationalization }}
@@ -69,7 +69,7 @@ PhoneNumberInput.displayName = "PhoneNumberInput";
 const InputComponent: React.FC<React.ComponentProps<typeof Input>> = ({
   className,
   ...props
-}) => <Input className={cn("rounded-s-none", className)} {...props} />;
+}) => <Input className={cn("ep:rounded-s-none", className)} {...props} />;
 InputComponent.displayName = "InputComponent";
 
 type CountryEntry = { label: string; value: RPNInput.Country | undefined };
@@ -91,7 +91,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
 }) => {
   if (!internationalization) {
     return (
-      <div className="border-input rounded-s-md rounded-e-none border-r-0 rounded-md border bg-background px-3 items-center flex">
+      <div className="ep:border-input ep:rounded-s-md ep:rounded-e-none ep:border-r-0 ep:rounded-md ep:border ep:bg-background ep:px-3 ep:items-center ep:flex">
         <FlagComponent
           country={selectedCountry}
           countryName={selectedCountry}
@@ -106,7 +106,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
         <Button
           type="button"
           variant="outline"
-          className="rounded-e-none rounded-s-lg border-r-0"
+          className="ep:rounded-e-none ep:rounded-s-lg ep:border-r-0"
           disabled={disabled}
         >
           <FlagComponent
@@ -115,17 +115,17 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
           />
           <ChevronsUpDown
             className={cn(
-              "-mr-2 size-4 opacity-50",
-              disabled ? "hidden" : "opacity-100"
+              "ep:-mr-2 ep:size-4 ep:opacity-50",
+              disabled ? "ep:hidden" : "ep:opacity-100"
             )}
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
+      <PopoverContent className="ep:w-[300px] ep:p-0">
         <Command>
           <CommandInput placeholder="Chercher..." />
           <CommandList>
-            <ScrollArea className="h-72">
+            <ScrollArea className="ep:h-72">
               <CommandEmpty>Aucun pays trouvé</CommandEmpty>
               <CommandGroup>
                 {countryList.map(({ value, label }) =>
@@ -160,15 +160,15 @@ const CountrySelectOption: React.FC<CountrySelectOptionProps> = ({
   onChange,
 }) => {
   return (
-    <CommandItem className="gap-2" onSelect={() => onChange(country)}>
+    <CommandItem className="ep:gap-2" onSelect={() => onChange(country)}>
       <FlagComponent country={country} countryName={countryName} />
-      <span className="flex-1 text-sm">{countryName}</span>
-      <span className="text-sm text-foreground">{`+${RPNInput.getCountryCallingCode(
+      <span className="ep:flex-1 ep:text-sm">{countryName}</span>
+      <span className="ep:text-sm ep:text-foreground">{`+${RPNInput.getCountryCallingCode(
         country
       )}`}</span>
       <CheckIcon
-        className={`ml-auto size-4 ${
-          country === selectedCountry ? "opacity-100" : "opacity-0"
+        className={`ep:ml-auto ep:size-4 ${
+          country === selectedCountry ? "ep:opacity-100" : "ep:opacity-0"
         }`}
       />
     </CommandItem>
@@ -179,7 +179,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
 
   return (
-    <span className="w-6 [>_svg]:h-6">
+    <span className="ep:w-6 ep:[>_svg]:h-6">
       {Flag && <Flag title={countryName} />}
     </span>
   );

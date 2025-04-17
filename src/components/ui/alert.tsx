@@ -3,18 +3,27 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * - removed "default" variant
+ * - added "info", "success", "warning" variants
+ * - set "info" as default variant
+ * - removed "text-muted-foreground" from AlertDescription className
+ * - fixed prefix placement
+ */
+
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current",
+  "ep:relative ep:w-full ep:rounded-lg ep:border ep:px-4 ep:py-3 ep:text-sm ep:grid ep:has-[>svg]:grid-cols-[calc(var(--ep-spacing)*4)_1fr] ep:grid-cols-[0_1fr] ep:has-[>svg]:gap-x-3 ep:gap-y-0.5 ep:items-start ep:[&>svg]:size-4 ep:[&>svg]:translate-y-0.5 ep:[&>svg]:text-current",
   {
     variants: {
       variant: {
-        info: "bg-info-light border-info-light-foreground/20 text-info-light-foreground",
+        info: "ep:bg-info-light ep:border-info-light-foreground/20 ep:text-info-light-foreground",
         success:
-          "bg-success-light border-success-light-foreground/20 text-success-light-foreground",
+          "ep:bg-success-light ep:border-success-light-foreground/20 ep:text-success-light-foreground",
         warning:
-          "bg-warning-light border-warning-light-foreground/20 text-warning-light-foreground",
+          "ep:bg-warning-light ep:border-warning-light-foreground/20 ep:text-warning-light-foreground",
         destructive:
-          "bg-destructive-light border-destructive-light-foreground/20 text-destructive-light-foreground",
+          "ep:text-destructive ep:bg-card ep:[&>svg]:text-current ep:*:data-[slot=alert-description]:text-destructive/90",
       },
     },
     defaultVariants: {
@@ -43,7 +52,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "col-start-2 line-clamp-1 min-h-4 font-semibold tracking-tight",
+        "ep:col-start-2 ep:line-clamp-1 ep:min-h-4 ep:font-medium ep:tracking-tight",
         className
       )}
       {...props}
@@ -59,7 +68,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
+        "ep:col-start-2 ep:grid ep:justify-items-start ep:gap-1 ep:text-sm ep:[&_p]:leading-relaxed",
         className
       )}
       {...props}

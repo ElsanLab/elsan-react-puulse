@@ -21,7 +21,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <PhoneNumberInput required={args.required} defaultCountry="FR" />
       </div>
     );
@@ -34,7 +34,7 @@ export const Internationalization: Story = {
   },
   render: function Render(args) {
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <PhoneNumberInput
           required={args.required}
           defaultCountry="FR"
@@ -51,7 +51,7 @@ export const LimitedContriesList: Story = {
   },
   render: function Render(args) {
     return (
-      <div className="space-y-2">
+      <div className="ep:space-y-2">
         <PhoneNumberInput
           required={args.required}
           defaultCountry="FR"

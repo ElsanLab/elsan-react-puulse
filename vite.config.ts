@@ -17,7 +17,7 @@ export default defineConfig({
         },
         {
           src: "src/themes/pro.css",
-          dest: "themes/pro.css",
+          dest: "themes",
         },
       ],
     }),

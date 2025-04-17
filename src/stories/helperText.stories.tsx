@@ -43,8 +43,8 @@ export const WithInput: Story = {
     text: "Please enter your email address.",
   },
   render: (args) => (
-    <div className="space-y-2">
-      <Label htmlFor="email" className="mb-2">
+    <div className="ep:space-y-2">
+      <Label htmlFor="email" className="ep:mb-2">
         Email address
       </Label>
       <HelperText>{args.text}</HelperText>

@@ -8,11 +8,14 @@ const FormValidationMessage: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   return (
     <div
-      className={cn("flex items-center gap-x-2 text-destructive", className)}
+      className={cn(
+        "ep:flex ep:items-center ep:gap-x-2 ep:text-destructive",
+        className
+      )}
       {...props}
     >
-      <OctagonAlert className="size-4" />
-      <div className="text-xs">{children}</div>
+      <OctagonAlert className="ep:size-4" />
+      <div className="ep:text-xs">{children}</div>
     </div>
   );
 };

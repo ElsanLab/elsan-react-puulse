@@ -13,7 +13,7 @@ type Story = StoryObj;
 export const Default: Story = {
   render: function Render() {
     return (
-      <Tabs defaultValue="account" className="w-[400px]">
+      <Tabs defaultValue="account" className="ep:w-[400px]">
         <TabsList>
           <TabsTrigger value="account">Account</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>

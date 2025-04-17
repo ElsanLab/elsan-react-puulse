@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 
 type TimePickerProps = Omit<React.ComponentProps<typeof Input>, "type">;
 
@@ -13,7 +13,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
       {...props}
       type="time"
       disabled={disabled}
-      className={cn("w-fit", className)}
+      className={cn("ep:w-fit", className)}
     />
   );
 };

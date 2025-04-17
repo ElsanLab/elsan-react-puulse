@@ -4,22 +4,31 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+/** CHANGES FROM DEFAULT SHADCN
+ *
+ * - removed "default", "secondary", "destructive" & "outline" variants
+ * - added "neutral", "info", "success", "warning" variants
+ * - set "neutral" as default variant
+ * - fixed prefix placement
+ */
+
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+  "ep:inline-flex ep:items-center ep:justify-center ep:rounded-md ep:border ep:px-2 ep:py-0.5 ep:text-xs ep:font-medium ep:w-fit ep:whitespace-nowrap ep:shrink-0 ep:[&>svg]:size-3 ep:gap-1 ep:[&>svg]:pointer-events-none ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:focus-visible:ring-[3px] ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:transition-[color,box-shadow] ep:overflow-hidden",
   {
     variants: {
       variant: {
         neutral:
-          "bg-neutral-light border-neutral-light-foreground/20 text-neutral-light-foreground",
+          "ep:bg-neutral-light ep:border-neutral-light-foreground/20 ep:text-neutral-light-foreground",
+
         primary:
-          "bg-primary-light border-primary-light-foreground/20 text-primary-light-foreground",
-        info: "bg-info-light border-info-light-foreground/20 text-info-light-foreground",
+          "ep:bg-primary-light ep:border-primary-light-foreground/20 ep:text-primary-light-foreground",
+        info: "ep:bg-info-light ep:border-info-light-foreground/20 ep:text-info-light-foreground",
         success:
-          "bg-success-light border-success-light-foreground/20 text-success-light-foreground",
+          "ep:bg-success-light ep:border-success-light-foreground/20 ep:text-success-light-foreground",
         warning:
-          "bg-warning-light border-warning-light-foreground/20 text-warning-light-foreground",
+          "ep:bg-warning-light ep:border-warning-light-foreground/20 ep:text-warning-light-foreground",
         destructive:
-          "bg-destructive-light border-destructive-light-foreground/20 text-destructive-light-foreground",
+          "ep:bg-destructive-light ep:border-destructive-light-foreground/20 ep:text-destructive-light-foreground",
       },
     },
     defaultVariants: {

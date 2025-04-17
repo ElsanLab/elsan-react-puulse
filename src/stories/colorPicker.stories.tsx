@@ -18,10 +18,10 @@ export const Default: StoryObj = {
     return (
       <>
         <ColorPicker color={color} onChange={setColor} />
-        <div className="mt-8 text-sm flex items-center gap-x-2">
+        <div className="ep:mt-8 ep:text-sm ep:flex ep:items-center ep:gap-x-2">
           Selected color:
-          <div className="size-4" style={{ backgroundColor: color }} />
-          <div className="text-xs ">{color}</div>
+          <div className="ep:size-4" style={{ backgroundColor: color }} />
+          <div className="ep:text-xs ">{color}</div>
         </div>
       </>
     );
