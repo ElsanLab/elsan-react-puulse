@@ -15,6 +15,10 @@ export default defineConfig({
           src: "src/fonts",
           dest: "",
         },
+        {
+          src: "src/themes/pro.css",
+          dest: "themes/pro.css",
+        },
       ],
     }),
   ],

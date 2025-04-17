@@ -4,8 +4,8 @@ alias run="pnpm run"
 
 rm -rf dist
 
-run build:types
 run build:components
-run build:themes:pro
+run build:themes
+run build:types
 
-rm -rf dist/components dist/vite.config.d.ts dist/vite.config.d.ts.map
+# rm -rf dist/components dist/vite.config.d.ts dist/vite.config.d.ts.map

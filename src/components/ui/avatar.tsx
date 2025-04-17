@@ -3,10 +3,9 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
 import { cn } from "@/lib/utils";
 
-function Avatar({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
+const Avatar: React.FC<
+  React.ComponentPropsWithRef<typeof AvatarPrimitive.Root>
+> = ({ className, ...props }) => {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
@@ -17,12 +16,12 @@ function Avatar({
       {...props}
     />
   );
-}
+};
 
 function AvatarImage({
   className,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+}: React.ComponentPropsWithRef<typeof AvatarPrimitive.Image>) {
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
