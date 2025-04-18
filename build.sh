@@ -8,4 +8,4 @@ run build:components
 run build:themes
 run build:types
 
-# rm -rf dist/components dist/vite.config.d.ts dist/vite.config.d.ts.map
+rm -rf dist/components dist/lib dist/vite.config.d.ts dist/vite.config.d.ts.map

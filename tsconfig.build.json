@@ -16,7 +16,8 @@
     "declarationMap": false,
     "emitDeclarationOnly": true,
     "declarationDir": "dist",
-    "outDir": "dist",
+    // "composite": true,
+    "outDir": "dist/types",
 
     /* Bundler mode */
     "moduleResolution": "bundler",

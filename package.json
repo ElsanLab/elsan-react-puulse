@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "vite",
     "build": "./build.sh",
-    "build:types": "tsc -p tsconfig.build.json && tsc-alias",
+    "build:types": "tsc -p tsconfig.build.json && tsc-alias && api-extractor run --local",
     "build:themes": "npx @tailwindcss/cli -i ./src/themes/base.css -o ./dist/themes/base.css",
     "build:components": "vite build",
     "lint": "eslint .",
@@ -63,6 +63,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
     "@eslint/js": "^9.21.0",
+    "@microsoft/api-extractor": "^7.52.4",
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/blocks": "^8.6.4",
     "@storybook/experimental-addon-test": "^8.6.4",

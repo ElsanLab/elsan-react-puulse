@@ -1,0 +1,21 @@
+{
+    "mainEntryPointFilePath": "./dist/index.d.ts",
+    "dtsRollup": {
+        "enabled": true,
+        "untrimmedFilePath": "./dist/index.d.ts"
+    },
+    "compiler": {
+        "tsconfigFilePath": "./tsconfig.build.json"
+    },
+    "projectFolder": ".",
+    "bundledPackages": [],
+    "apiReport": {
+        "enabled": false,
+        "reportFolder": "./temp",
+        "reportFileName": "my-lib.api.md"
+    },
+    "docModel": {
+        "enabled": false,
+        "apiJsonFilePath": "./temp/my-lib.api.json"
+    }
+}
