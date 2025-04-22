@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
  *
  */
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "ep:inline-flex ep:items-center ep:justify-center ep:gap-2 ep:whitespace-nowrap ep:rounded-md ep:text-sm ep:font-medium ep:transition-all ep:disabled:pointer-events-none ep:disabled:opacity-50 ep:[&_svg]:pointer-events-none ep:[&_svg:not([class*=size-])]:size-4 ep:shrink-0 ep:[&_svg]:shrink-0 ep:outline-none ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:focus-visible:ring-[3px] ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive",
   {
     variants: {
@@ -80,13 +80,15 @@ const buttonVariants = cva(
   }
 );
 
-interface ButtonProps
+export type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+export interface ButtonProps
   extends React.ComponentProps<"button">,
-    VariantProps<typeof buttonVariants> {
+    ButtonVariants {
   asChild?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   className,
   variant,
   size,
@@ -104,6 +106,3 @@ const Button: React.FC<ButtonProps> = ({
     />
   );
 };
-
-export { Button, buttonVariants };
-export type { ButtonProps };

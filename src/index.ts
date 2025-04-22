@@ -4,7 +4,7 @@ export { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 export { Badge } from "@/components/ui/badge";
 export { Button, buttonVariants } from "@/components/ui/button";
-export type { ButtonProps } from "@/components/ui/button";
+export type { ButtonProps, ButtonVariants } from "@/components/ui/button";
 export { Calendar } from "@/components/ui/calendar";
 export { Checkbox } from "@/components/ui/checkbox";
 export { ColorPicker } from "@/components/ui/colorPicker";
