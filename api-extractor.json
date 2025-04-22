@@ -10,12 +10,12 @@
     "projectFolder": ".",
     "bundledPackages": [],
     "apiReport": {
-        "enabled": false,
-        "reportFolder": "./temp",
-        "reportFileName": "my-lib.api.md"
+        "enabled": false
     },
     "docModel": {
-        "enabled": false,
-        "apiJsonFilePath": "./temp/my-lib.api.json"
+        "enabled": false
+    },
+    "tsdocMetadata": {
+        "enabled": false
     }
 }
