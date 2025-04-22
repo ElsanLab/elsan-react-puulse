@@ -80,12 +80,17 @@ export const buttonVariants = cva(
   }
 );
 
-export type ButtonVariants = VariantProps<typeof buttonVariants>;
-
-export interface ButtonProps
-  extends React.ComponentProps<"button">,
-    ButtonVariants {
+export interface ButtonProps extends React.ComponentProps<"button"> {
   asChild?: boolean;
+  variant?:
+    | "destructive"
+    | "link"
+    | "primary"
+    | "outline"
+    | "secondary"
+    | "ghost";
+  size?: "sm" | "md" | "lg";
+  contentType?: "default" | "icon";
 }
 
 export const Button: React.FC<ButtonProps> = ({
