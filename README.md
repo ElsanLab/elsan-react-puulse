@@ -23,10 +23,6 @@ pnpm storybook
 ```
 
 ### Build
-Lors de la première installation, exécuter la commande pour autoriser l'exécution du fichier build.sh. 
-``` 
-chmod +x build.sh 
-```
 
 Pour exécuter le build du package, exécuter simplement
 ```
