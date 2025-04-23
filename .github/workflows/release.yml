@@ -38,13 +38,19 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Create Git tag
+      - name: Create commit
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          echo "Setting version to ${{ github.event.inputs.version }}"
+          npm version ${{ github.event.inputs.version }} --no-git-tag-version
+          git add package.json
+          echo "Force add dist directory"
           git add -f dist
           git commit -m "Include dist directory for release" || echo "No changes to commit"
+          echo "Create tag"
           git tag ${{ github.event.inputs.version }}
+          echo "Push"
           git push origin ${{ github.event.inputs.version }}
           git reset --soft HEAD~1  # Undo commit but keep changes staged
 
