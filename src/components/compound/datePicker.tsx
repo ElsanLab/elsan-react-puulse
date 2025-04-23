@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/popover";
 import { Matcher } from "react-day-picker";
 
-type DatePickerProps = {
+export interface DatePickerProps {
   placeholder?: string;
   dateFormat?: string;
   locale?: Locale;
@@ -20,7 +20,7 @@ type DatePickerProps = {
   onSelect?: (date: Date) => void | undefined;
   min?: Date | undefined;
   max?: Date | undefined;
-};
+}
 
 const DatePicker: React.FC<DatePickerProps> = ({
   placeholder = "Choisir",

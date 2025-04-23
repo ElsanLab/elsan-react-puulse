@@ -21,16 +21,13 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
-type PhoneNumberInputProps = Omit<
-  React.ComponentProps<"input">,
-  "onChange" | "value" | "ref" | "type"
-> &
-  Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
-    onChange?: (value: RPNInput.Value) => void;
-    internationalization?: boolean;
-  };
-
-const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
+const PhoneNumberInput: React.FC<
+  Omit<React.ComponentProps<"input">, "onChange" | "value" | "ref" | "type"> &
+    Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
+      onChange?: (value: RPNInput.Value) => void;
+      internationalization?: boolean;
+    }
+> = ({
   className,
   internationalization = false,
   defaultCountry = "FR",
@@ -148,17 +145,12 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
   );
 };
 
-interface CountrySelectOptionProps extends RPNInput.FlagProps {
-  selectedCountry: RPNInput.Country;
-  onChange: (country: RPNInput.Country) => void;
-}
-
-const CountrySelectOption: React.FC<CountrySelectOptionProps> = ({
-  country,
-  countryName,
-  selectedCountry,
-  onChange,
-}) => {
+const CountrySelectOption: React.FC<
+  RPNInput.FlagProps & {
+    selectedCountry: RPNInput.Country;
+    onChange: (country: RPNInput.Country) => void;
+  }
+> = ({ country, countryName, selectedCountry, onChange }) => {
   return (
     <CommandItem className="ep:gap-2" onSelect={() => onChange(country)}>
       <FlagComponent country={country} countryName={countryName} />

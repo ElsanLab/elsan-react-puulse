@@ -1,5 +1,12 @@
 {
     "mainEntryPointFilePath": "./dist/index.d.ts",
+    "messages": {
+        "extractorMessageReporting": {
+            "ae-missing-release-tag": {
+                "logLevel": "none"
+            }
+        }
+    },
     "dtsRollup": {
         "enabled": true,
         "untrimmedFilePath": "./dist/index.d.ts"

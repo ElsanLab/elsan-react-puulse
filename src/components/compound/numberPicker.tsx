@@ -4,13 +4,13 @@ import { Minus, Plus } from "lucide-react";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-type NumberInputProps = Omit<React.ComponentProps<"input">, "type"> & {
-  min?: number;
-  max?: number;
-  step?: number;
-};
-
-const NumberPicker: React.FC<NumberInputProps> = ({
+const NumberPicker: React.FC<
+  Omit<React.ComponentProps<"input">, "type"> & {
+    min?: number;
+    max?: number;
+    step?: number;
+  }
+> = ({
   disabled,
   className = undefined,
   min = undefined,

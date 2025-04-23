@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Eye } from "lucide-react";
 
-type PasswordInputProps = Omit<React.ComponentProps<"input">, "type">;
-
-const PasswordInput: React.FC<PasswordInputProps> = ({
+const PasswordInput: React.FC<Omit<React.ComponentProps<"input">, "type">> = ({
   disabled,
   ...props
 }) => {

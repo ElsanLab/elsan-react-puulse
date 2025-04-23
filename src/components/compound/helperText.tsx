@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 
-type HelperTextProps = React.HTMLAttributes<HTMLParagraphElement>;
-
-const HelperText: React.FC<HelperTextProps> = ({ className, ...props }) => {
+const HelperText: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({
+  className,
+  ...props
+}) => {
   return (
     <p
       className={cn("ep:text-sm ep:text-muted-foreground", className)}

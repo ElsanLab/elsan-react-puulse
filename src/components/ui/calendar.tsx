@@ -20,7 +20,17 @@ import { fr } from "date-fns/locale";
  *
  */
 
-export type CalendarProps = DayPickerProps & {
+type NavView = "days" | "years";
+
+function Calendar({
+  className,
+  showOutsideDays = true,
+  showYearSwitcher = true,
+  yearRange = 12,
+  numberOfMonths,
+  locale = fr,
+  ...props
+}: DayPickerProps & {
   /**
    * In the year view, the number of years to display at once.
    * @default 12
@@ -55,19 +65,7 @@ export type CalendarProps = DayPickerProps & {
   disabledClassName?: string;
   rangeMiddleClassName?: string;
   hiddenClassName?: string;
-};
-
-type NavView = "days" | "years";
-
-function Calendar({
-  className,
-  showOutsideDays = true,
-  showYearSwitcher = true,
-  yearRange = 12,
-  numberOfMonths,
-  locale = fr,
-  ...props
-}: CalendarProps) {
+}) {
   const [navView, setNavView] = React.useState<NavView>("days");
   const [displayYears, setDisplayYears] = React.useState<{
     from: number;

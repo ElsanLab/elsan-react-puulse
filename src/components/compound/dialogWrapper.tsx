@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-type DialogWrapperModeProps = {
+export type DialogWrapperModeProps = {
   mode?: "sheet" | "dialog";
   size?: "sm" | "md" | "lg" | "xl";
 };

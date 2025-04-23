@@ -80,27 +80,20 @@ export const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps extends React.ComponentProps<"button"> {
-  asChild?: boolean;
-  variant?:
-    | "destructive"
-    | "link"
-    | "primary"
-    | "outline"
-    | "secondary"
-    | "ghost";
-  size?: "sm" | "md" | "lg";
-  contentType?: "default" | "icon";
-}
-
-export const Button: React.FC<ButtonProps> = ({
-  className,
-  variant,
-  size,
-  contentType,
-  asChild = false,
-  ...props
-}) => {
+export const Button: React.FC<
+  React.ComponentProps<"button"> & {
+    asChild?: boolean;
+    variant?:
+      | "destructive"
+      | "link"
+      | "primary"
+      | "outline"
+      | "secondary"
+      | "ghost";
+    size?: "sm" | "md" | "lg";
+    contentType?: "default" | "icon";
+  }
+> = ({ className, variant, size, contentType, asChild = false, ...props }) => {
   const Comp = asChild ? Slot : "button";
 
   return (
