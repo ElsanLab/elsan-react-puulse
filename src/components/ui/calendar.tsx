@@ -14,7 +14,7 @@ import {
 } from "react-day-picker";
 import { fr } from "date-fns/locale";
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * Everything
  * Taken from https://date-picker.luca-felix.com
@@ -32,16 +32,14 @@ function Calendar({
   locale = fr,
   ...props
 }: DayPickerProps & {
-  /**
+  /*
    * In the year view, the number of years to display at once.
    */
   yearRange?: number;
-
-  /**
+  /*
    * Wether to show the year switcher in the caption.
    */
   showYearSwitcher?: boolean;
-
   monthsClassName?: string;
   monthCaptionClassName?: string;
   weekdaysClassName?: string;

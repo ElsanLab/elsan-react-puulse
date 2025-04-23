@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * Changed variants to 'primary', 'destructive', 'outline', 'secondary', 'ghost', 'link'
  * Changed sizes to 'sm', 'md', 'lg'

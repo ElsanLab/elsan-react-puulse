@@ -10,7 +10,7 @@ export type SelectOption = {
   value: string;
 };
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * Everything, this is not a shadcn component
  *

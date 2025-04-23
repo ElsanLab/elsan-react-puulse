@@ -4,7 +4,7 @@ import { CircleCheck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * Indicator changed to CircleCheck size-3 instead of Circle size-2
  * Added text-primary-foreground to Indicator

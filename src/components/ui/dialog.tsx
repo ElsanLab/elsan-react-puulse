@@ -7,7 +7,7 @@ import { XIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * Added size variants, with md as default size
  * fixed prefix placement

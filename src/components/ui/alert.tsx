@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * - removed "default" variant
  * - added "info", "success", "warning" variants

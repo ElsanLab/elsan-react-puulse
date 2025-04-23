@@ -5,7 +5,7 @@ import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { cn } from "@/lib/utils";
 
-/** CHANGES FROM DEFAULT SHADCN
+/* CHANGES FROM DEFAULT SHADCN
  *
  * TabsTrigger state active changed background to bg-primary instead of bg-background
  * TabsTrigger state active changed text color to text-foreground instead of text-primary
