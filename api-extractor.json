@@ -9,7 +9,9 @@
     },
     "dtsRollup": {
         "enabled": true,
-        "untrimmedFilePath": "./dist/index.d.ts"
+        "untrimmedFilePath": "",
+        "publicTrimmedFilePath": "./dist/index.d.ts",
+        "omitTrimmingComments": true
     },
     "compiler": {
         "tsconfigFilePath": "./tsconfig.build.json"

@@ -17,6 +17,7 @@ import { fr } from "date-fns/locale";
 /** CHANGES FROM DEFAULT SHADCN
  *
  * Everything
+ * Taken from https://date-picker.luca-felix.com
  *
  */
 
@@ -33,13 +34,11 @@ function Calendar({
 }: DayPickerProps & {
   /**
    * In the year view, the number of years to display at once.
-   * @default 12
    */
   yearRange?: number;
 
   /**
    * Wether to show the year switcher in the caption.
-   * @default true
    */
   showYearSwitcher?: boolean;
 

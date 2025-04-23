@@ -5,20 +5,9 @@ import SelectPrimitive, {
   SingleValue,
 } from "react-select";
 
-type Option = {
+export type SelectOption = {
   label: string;
   value: string;
-};
-
-type SelectProps = {
-  options: Option[];
-  placeholder?: string;
-  onChange: (value: string | string[] | null) => void;
-  isMulti?: boolean;
-  value?: string | string[] | null;
-  isClearable?: boolean;
-  isDisabled?: boolean;
-  isSearchable?: boolean;
 };
 
 /** CHANGES FROM DEFAULT SHADCN
@@ -27,20 +16,24 @@ type SelectProps = {
  *
  */
 
-const Select: React.FC<SelectProps> = ({
-  options,
-  placeholder = "Sélectionner",
-  onChange,
-  ...props
-}) => {
+const Select: React.FC<{
+  options: SelectOption[];
+  placeholder?: string;
+  onChange: (value: string | string[] | null) => void;
+  isMulti?: boolean;
+  value?: string | string[] | null;
+  isClearable?: boolean;
+  isDisabled?: boolean;
+  isSearchable?: boolean;
+}> = ({ options, placeholder = "Sélectionner", onChange, ...props }) => {
   const handleChange: (
-    newValue: MultiValue<Option> | SingleValue<Option>,
-    actionMeta: ActionMeta<Option>
+    newValue: MultiValue<SelectOption> | SingleValue<SelectOption>,
+    actionMeta: ActionMeta<SelectOption>
   ) => void = (options) => {
     if (Array.isArray(options)) {
       onChange(options.map((option) => option.value));
     } else {
-      onChange((options as Option | undefined)?.value || null);
+      onChange((options as SelectOption | undefined)?.value || null);
     }
   };
 

@@ -67,6 +67,7 @@ export {
 export { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 export { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 export { Select } from "@/components/ui/select";
+export type { SelectOption } from "@/components/ui/select";
 export {
   Sheet,
   SheetTrigger,
