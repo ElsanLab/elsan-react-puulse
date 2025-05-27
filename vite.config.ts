@@ -38,14 +38,14 @@ export default defineConfig({
       entry: "src/index.ts",
       formats: ["es"],
     },
-    minify: false,
+    minify: "esbuild",
     rollupOptions: {
       input: {
         index: "src/index.ts",
       },
       output: {
-        // preserveModules: true,
-        // preserveModulesRoot: "src",
+        preserveModules: true,
+        preserveModulesRoot: "",
         // manualChunks: undefined,
         entryFileNames: "[name].js",
         // chunkFileNames: "chunks/[name].js",
