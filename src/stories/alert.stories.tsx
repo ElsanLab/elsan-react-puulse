@@ -8,7 +8,7 @@ import {
   TriangleAlert,
 } from "lucide-react";
 
-interface ALertStoryArgs {
+interface AlertStoryArgs {
   variant: "info" | "success" | "warning" | "destructive";
   title: string;
   description: string;
@@ -33,7 +33,7 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<ALertStoryArgs>;
+type Story = StoryObj<AlertStoryArgs>;
 
 export const Default: Story = {
   args: {

@@ -1,3 +1,5 @@
+@import url("./puulse-colors.css");
+
 @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter-Regular.ttf");
@@ -10,16 +12,60 @@
 :root {
   --sans: "Inter";
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: var(--puulse-sand-50);
+  --foreground: var(--puulse-sand-950);
 
-  --card: oklch(1 0 0);
+  --border: var(--puulse-sand-300);
+
+  --primary: ;
+  --primary-foreground: ;
+  --primary-border: ;
+
+  --primary-light: ;
+  --primary-light-foreground: ;
+  --primary-light-border: ;
+
+  --secondary: ;
+  --secondary-foreground: ;
+  --secondary-border: ;
+
+  --secondary-light: var(--puulse-sand-200);
+  --secondary-light-foreground: var(--puulse-sand-900);
+  --secondary-light-border: var(--puulse-sand-400);
+
+  --info-light: var(--puulse-iris-200);
+  --info-light-foreground: var(--puulse-iris-900);
+  --info-light-border: var(--puulse-iris-400);
+
+  --success-light: var(--puulse-grass-200);
+  --success-light-foreground: var(--puulse-grass-900);
+  --success-light-border: var(--puulse-grass-400);
+
+  --warning-light: var(--puulse-orange-200);
+  --warning-light-foreground: var(--puulse-orange-900);
+  --warning-light-border: var(--puulse-orange-400);
+
+  --destructive: ;
+  --destructive-foreground: ;
+  --destructive-border: ;
+
+  --destructive-light: var(--puulse-red-200);
+  --destructive-light-foreground: var(--puulse-red-900);
+  --destructive-light-border: var(--puulse-red-400);
+
+  --popover: var(--puulse-sand-100);
+  --popover-foreground: var(--puulse-sand-950);
+
+  --radius: 0.25rem;
+  --radius-sm: calc(var(--radius) / 2);
+  --radius-md: calc(var(--radius) * 2);
+  --radius-lg: calc(var(--radius) * 2);
+  --radius-xl: calc(var(--radius) * 2);
+
+  /* --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-
-  --primary: oklch(46.46% 0.2161 262.48);
+  --primary: var(--palet-primary);
   --primary-foreground: oklch(0.985 0 0);
 
   --primary-light: oklch(81.86% 0.0624 271.8);
@@ -34,7 +80,7 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
 
-  --info-light: oklch(94.75% 0.0238 304.49);
+  --info-light: var(--palet-info-lightest);
   --info-light-foreground: oklch(23.87% 0.0982 318.02);
 
   --success-light: oklch(96.8% 0.0337 145.31);
@@ -52,8 +98,6 @@
   --neutral-foreground: oklch(98.81% 0 0);
   --neutral-light: oklch(92.81% 0.0042 271.37);
   --neutral-light-foreground: oklch(20.2% 0.0279 280.43);
-
-  --border: oklch(0.922 0 0);
 
   --input: oklch(0.922 0 0);
 
@@ -74,42 +118,15 @@
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.87 0 0);
+  --sidebar-ring: oklch(0.87 0 0); */
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(46.46% 0.2161 262.48);
-  --primary-foreground: oklch(0.205 0 0);
-  --primary-light: oklch(81.86% 0.0624 271.8);
-  --primary-light-foreground: oklch(46.46% 0.2161 262.48);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: var(--puulse-sand-950);
+  --foreground: var(--puulse-sand-50);
+
+  --border: var(--puulse-sand-500);
+
+  --popover: var(--puulse-sand-950);
+  --popover-foreground: var(--puulse-sand-50);
 }

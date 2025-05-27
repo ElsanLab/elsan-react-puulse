@@ -2,23 +2,40 @@ import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
 import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
 
 /* CHANGES FROM DEFAULT SHADCN
  *
- * None
+ * Added size variant to Avatar
+ * Added color variants to AvatarFallback
+ *
  */
+const avatarVariants = cva(
+  "ep:relative ep:flex ep:shrink-0 ep:overflow-hidden ep:rounded-sm",
+  {
+    variants: {
+      size: {
+        md: "ep:size-10",
+        sm: "ep:size-8",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
 
 function Avatar({
   className,
+  size,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
+}: React.ComponentProps<typeof AvatarPrimitive.Root> & {
+  size?: "md" | "sm";
+}) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
-      className={cn(
-        "ep:relative ep:flex ep:size-8 ep:shrink-0 ep:overflow-hidden ep:rounded-full",
-        className
-      )}
+      className={cn(avatarVariants({ size }), className)}
       {...props}
     />
   );
@@ -37,17 +54,35 @@ function AvatarImage({
   );
 }
 
+const fallbackVariants = cva(
+  "ep:flex ep:size-full ep:items-center ep:justify-center ep:rounded-sm",
+  {
+    variants: {
+      variant: {
+        info: "ep:bg-info-light ep:text-info-light-foreground",
+        success: "ep:bg-success-light ep:text-success-light-foreground",
+        warning: "ep:bg-warning-light ep:text-warning-light-foreground",
+        destructive:
+          "ep:bg-destructive-light ep:text-destructive-light-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "info",
+    },
+  }
+);
+
 function AvatarFallback({
   className,
+  variant,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback> & {
+  variant?: "info" | "success" | "warning" | "destructive";
+}) {
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
-      className={cn(
-        "ep:bg-muted ep:flex ep:size-full ep:items-center ep:justify-center ep:rounded-full",
-        className
-      )}
+      className={cn(fallbackVariants({ variant }), className)}
       {...props}
     />
   );

@@ -5,6 +5,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 interface AvatarStoryArgs {
   src: string;
   fallback: string;
+  size: "sm" | "md";
+  variant: "info" | "warning" | "success" | "destructive";
 }
 
 const meta = {
@@ -20,16 +22,36 @@ export const Default: Story = {
   argTypes: {
     src: { control: "text" },
     fallback: { control: "text" },
+    size: {
+      control: {
+        type: "inline-radio",
+      },
+      options: ["sm", "md"],
+      table: {
+        defaultValue: { summary: "md" },
+      },
+    },
+    variant: {
+      control: {
+        type: "select",
+      },
+      options: ["info", "success", "warning", "destructive"],
+      table: {
+        defaultValue: { summary: "info" },
+      },
+    },
   },
   args: {
     src: "https://github.com/shadcn.png",
     fallback: "SC",
+    size: "md",
+    variant: "info",
   },
   render: function Render(args) {
     return (
-      <Avatar>
+      <Avatar size={args.size}>
         <AvatarImage src={args.src} />
-        <AvatarFallback>{args.fallback}</AvatarFallback>
+        <AvatarFallback variant={args.variant}>{args.fallback}</AvatarFallback>
       </Avatar>
     );
   },
@@ -44,8 +66,8 @@ export const WithoutImage: Story = {
   },
   render: function Render(args) {
     return (
-      <Avatar>
-        <AvatarFallback>{args.fallback}</AvatarFallback>
+      <Avatar size={args.size}>
+        <AvatarFallback variant={args.variant}>{args.fallback}</AvatarFallback>
       </Avatar>
     );
   },

@@ -4,13 +4,7 @@ import { User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface BadgeStoryArgs {
-  variant:
-    | "neutral"
-    | "primary"
-    | "info"
-    | "success"
-    | "warning"
-    | "destructive";
+  variant: "neutral" | "info" | "success" | "warning" | "destructive";
   text: string;
   withIcon: boolean;
 }

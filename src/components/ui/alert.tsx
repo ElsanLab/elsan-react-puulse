@@ -13,17 +13,17 @@ import { cn } from "@/lib/utils";
  */
 
 const alertVariants = cva(
-  "ep:relative ep:w-full ep:rounded-lg ep:border ep:px-4 ep:py-3 ep:text-sm ep:grid ep:has-[>svg]:grid-cols-[calc(var(--ep-spacing)*4)_1fr] ep:grid-cols-[0_1fr] ep:has-[>svg]:gap-x-3 ep:gap-y-0.5 ep:items-start ep:[&>svg]:size-4 ep:[&>svg]:translate-y-0.5 ep:[&>svg]:text-current",
+  "ep:relative ep:w-full ep:rounded-sm ep:border ep:px-4 ep:py-3 ep:text-sm ep:grid ep:has-[>svg]:grid-cols-[calc(var(--ep-spacing)*4)_1fr] ep:grid-cols-[0_1fr] ep:has-[>svg]:gap-x-3 ep:gap-y-0.5 ep:items-start ep:[&>svg]:size-4 ep:[&>svg]:translate-y-0.5 ep:[&>svg]:text-current",
   {
     variants: {
       variant: {
-        info: "ep:bg-info-light ep:border-info-light-foreground/20 ep:text-info-light-foreground",
+        info: "ep:bg-info-light ep:border-info-light-border ep:text-info-light-foreground",
         success:
-          "ep:bg-success-light ep:border-success-light-foreground/20 ep:text-success-light-foreground",
+          "ep:bg-success-light ep:border-success-light-border ep:text-success-light-foreground",
         warning:
-          "ep:bg-warning-light ep:border-warning-light-foreground/20 ep:text-warning-light-foreground",
+          "ep:bg-warning-light ep:border-warning-light-border ep:text-warning-light-foreground",
         destructive:
-          "ep:text-destructive ep:bg-card ep:[&>svg]:text-current ep:*:data-[slot=alert-description]:text-destructive/90",
+          "ep:bg-destructive-light ep:border-destructive-light-border ep:text-destructive-light-foreground",
       },
     },
     defaultVariants: {

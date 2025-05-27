@@ -18,17 +18,14 @@ const badgeVariants = cva(
     variants: {
       variant: {
         neutral:
-          "ep:bg-neutral-light ep:border-neutral-light-foreground/20 ep:text-neutral-light-foreground",
-
-        primary:
-          "ep:bg-primary-light ep:border-primary-light-foreground/20 ep:text-primary-light-foreground",
-        info: "ep:bg-info-light ep:border-info-light-foreground/20 ep:text-info-light-foreground",
+          "ep:bg-secondary-light ep:border-secondary-light-border ep:text-secondary-light-foreground",
+        info: "ep:bg-info-light ep:border-info-light-border ep:text-info-light-foreground",
         success:
-          "ep:bg-success-light ep:border-success-light-foreground/20 ep:text-success-light-foreground",
+          "ep:bg-success-light ep:border-success-light-border ep:text-success-light-foreground",
         warning:
-          "ep:bg-warning-light ep:border-warning-light-foreground/20 ep:text-warning-light-foreground",
+          "ep:bg-warning-light ep:border-warning-light-border ep:text-warning-light-foreground",
         destructive:
-          "ep:bg-destructive-light ep:border-destructive-light-foreground/20 ep:text-destructive-light-foreground",
+          "ep:bg-destructive-light ep:border-destructive-light-border ep:text-destructive-light-foreground",
       },
     },
     defaultVariants: {
@@ -43,13 +40,7 @@ function Badge({
   asChild = false,
   ...props
 }: React.ComponentProps<"span"> & {
-  variant?:
-    | "neutral"
-    | "primary"
-    | "info"
-    | "success"
-    | "warning"
-    | "destructive";
+  variant?: "neutral" | "info" | "success" | "warning" | "destructive";
   asChild?: boolean;
 }) {
   const Comp = asChild ? Slot : "span";
