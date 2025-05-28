@@ -11,11 +11,13 @@
   ],
   "exports": {
     "./Button": {
-      "import": "./dist/components/ui/button.js"
+      "import": "./dist/components/ui/button.js",
+      "types": "./dist/components/ui/button.d.ts"
     },
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./*": "./dist/*"
   },
