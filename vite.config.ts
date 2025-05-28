@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import path, { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import pkg from "./package.json";
@@ -35,7 +35,9 @@ export default defineConfig({
     emptyOutDir: false,
     cssCodeSplit: true,
     lib: {
-      entry: "src/index.ts",
+      entry: {
+        Button: resolve(__dirname, "src/components/ui/button.tsx"),
+      },
       formats: ["es"],
     },
     minify: "esbuild",
@@ -45,7 +47,7 @@ export default defineConfig({
       },
       output: {
         preserveModules: true,
-        preserveModulesRoot: "",
+        preserveModulesRoot: "src",
         // manualChunks: undefined,
         entryFileNames: "[name].js",
         // chunkFileNames: "chunks/[name].js",

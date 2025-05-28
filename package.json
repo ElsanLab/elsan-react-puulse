@@ -22,7 +22,7 @@
     "build:types": "tsc -p tsconfig.build.json && tsc-alias && api-extractor run --local",
     "build:themes": "pnpm dlx @tailwindcss/cli -i ./src/themes/base.css -o ./dist/themes/base.css",
     "build:components": "vite build",
-    "build:clean": "rimraf dist/components dist/lib dist/vite.config.d.ts dist/vite.config.d.ts.map",
+    "build:clean": "rimraf dist/vite.config.d.ts dist/vite.config.d.ts.map",
     "lint": "eslint . && stylelint src/**/*.css",
     "stylelint": "stylelint src/**/*.css",
     "preview": "vite preview",
