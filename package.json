@@ -1,19 +1,15 @@
 {
   "name": "elsan-react-puulse",
-  "private": true,
-  "version": "0.0.9",
+  "private": false,
+  "version": "0.0.15",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    "./Button": {
-      "import": "./dist/components/ui/button.js",
-      "types": "./dist/components/ui/button.d.ts"
-    },
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js",
@@ -51,6 +47,7 @@
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
     "date-fns": "^4.1.0",
+    "elsan-react-puulse": "file:.yalc/elsan-react-puulse",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.477.0",
     "next-themes": "^0.4.6",
@@ -130,6 +127,9 @@
     "tailwindcss": "^4.1.4",
     "tailwindcss-animate": "^1.0.7"
   },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "pnpm": {
     "onlyBuiltDependencies": [
       "@parcel/watcher",
