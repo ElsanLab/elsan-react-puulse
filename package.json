@@ -10,6 +10,9 @@
     "dist"
   ],
   "exports": {
+    "./Button": {
+      "import": "./dist/components/ui/button.js"
+    },
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js"
