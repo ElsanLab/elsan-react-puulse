@@ -17,8 +17,8 @@
 
   --border: var(--puulse-sand-300);
 
-  --primary: ;
-  --primary-foreground: ;
+  --primary: var(--puulse-indigo-800);
+  --primary-foreground: var(--puulse-sand-50);
   --primary-border: ;
 
   --primary-light: ;
@@ -45,8 +45,8 @@
   --warning-light-foreground: var(--puulse-orange-900);
   --warning-light-border: var(--puulse-orange-400);
 
-  --destructive: ;
-  --destructive-foreground: ;
+  --destructive: var(--puulse-red-700);
+  --destructive-foreground: var(--puulse-sand-50);
   --destructive-border: ;
 
   --destructive-light: var(--puulse-red-200);
