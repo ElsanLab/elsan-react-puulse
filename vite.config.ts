@@ -19,6 +19,10 @@ export default defineConfig({
           src: "src/themes/pro.css",
           dest: "themes",
         },
+        {
+          src: "src/themes/puulse-colors.css",
+          dest: "themes",
+        },
       ],
     }),
   ],
