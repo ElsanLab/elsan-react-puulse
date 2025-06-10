@@ -68,7 +68,7 @@ const DatePicker: React.FC<{
     <Popover>
       <DatePickerTrigger asChild>
         <Button
-          variant={"outline"}
+          variant="secondary"
           className={cn(
             "ep:w-fit ep:justify-start ep:text-left ep:font-normal",
             !date && "ep:text-muted-foreground"

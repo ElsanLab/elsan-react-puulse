@@ -8,7 +8,7 @@
     "css": "src/themes/base.css",
     "baseColor": "neutral",
     "cssVariables": true,
-    "prefix": "ep:"
+    "prefix": "ep"
   },
   "aliases": {
     "components": "@/components",

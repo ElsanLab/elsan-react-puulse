@@ -7,30 +7,44 @@ import { Ambulance } from "lucide-react";
 type StoryArgs = {
   variant:
     | "primary"
-    | "destructive"
-    | "outline"
     | "secondary"
+    | "tertiary"
+    | "destructive"
+    | "destructiveLight"
     | "ghost"
     | "link";
-  size: "sm" | "md" | "lg";
+  size: "small" | "medium" | "large";
   children: React.ReactNode;
   icon?: string[];
-  contentType?: "default" | "icon";
+  content?: "default" | "icon";
+  disabled?: boolean;
+  asChild?: boolean;
 };
 
 const meta = {
   title: "Components/Button",
   component: Button,
   argTypes: {
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
+    children: {
+      table: {
+        disable: true,
+      },
+    },
     variant: {
       control: {
         type: "select",
       },
       options: [
         "primary",
-        "destructive",
-        "outline",
         "secondary",
+        "tertiary",
+        "destructive",
+        "destructiveLight",
         "ghost",
         "link",
       ],
@@ -42,9 +56,23 @@ const meta = {
       control: {
         type: "inline-radio",
       },
-      options: ["sm", "md", "lg"],
+      options: ["small", "medium", "large"],
       table: {
-        defaultValue: { summary: "md" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    content: {
+      control: {
+        type: "inline-radio",
+      },
+      options: ["default", "icon"],
+      table: {
+        defaultValue: { summary: "default" },
+      },
+    },
+    disabled: {
+      control: {
+        type: "boolean",
       },
     },
   },
@@ -56,11 +84,17 @@ const meta = {
           variant={args.variant}
           size={args.size}
           onClick={() => setCount(count + 1)}
-          contentType={args.contentType}
+          content={args.content}
+          disabled={args.disabled}
         >
-          {args.icon?.includes("Left") && <Ambulance />}
-          {args.children}
-          {args.icon?.includes("Right") && <Ambulance />}
+          {args.content !== "icon" && args.icon?.includes("Left") && (
+            <Ambulance />
+          )}
+          {args.content !== "icon" && args.children}
+          {args.content !== "icon" && args.icon?.includes("Right") && (
+            <Ambulance />
+          )}
+          {args.content === "icon" && <Ambulance />}
         </Button>
         <div>Clicked {count} times</div>
       </div>
@@ -84,7 +118,7 @@ export const Default: Story = {
   args: {
     children: "Button",
     variant: "primary",
-    size: "md",
+    size: "medium",
   },
 };
 
@@ -98,8 +132,8 @@ export const IconOnly: Story = {
   },
   args: {
     variant: "primary",
-    size: "md",
-    contentType: "icon",
+    size: "medium",
+    content: "icon",
     children: <Ambulance />,
   },
 };

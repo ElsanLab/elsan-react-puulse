@@ -102,7 +102,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
       <PopoverTrigger asChild>
         <Button
           type="button"
-          variant="outline"
+          variant="secondary"
           className="ep:rounded-e-none ep:rounded-s-lg ep:border-r-0"
           disabled={disabled}
         >

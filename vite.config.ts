@@ -16,11 +16,11 @@ export default defineConfig({
           dest: "",
         },
         {
-          src: "src/themes/pro.css",
-          dest: "themes",
-        },
-        {
-          src: "src/themes/puulse-colors.css",
+          src: [
+            "src/themes/pro.css",
+            "src/themes/puulse-colors.css",
+            "src/themes/tailwind-config.css",
+          ],
           dest: "themes",
         },
       ],

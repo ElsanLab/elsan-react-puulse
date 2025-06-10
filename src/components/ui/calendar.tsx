@@ -101,7 +101,7 @@ function Calendar({
     props.captionLabelClassName
   );
   const buttonNavClassName = buttonVariants({
-    variant: "outline",
+    variant: "secondary",
     className:
       "ep:absolute ep:h-7 ep:w-7 ep:bg-transparent ep:p-0 ep:opacity-50 ep:hover:opacity-100",
   });
@@ -361,7 +361,7 @@ function Nav({
   return (
     <nav className={cn("ep:flex ep:items-center", className)}>
       <Button
-        variant="outline"
+        variant="secondary"
         className="ep:absolute ep:left-0 ep:size-7 ep:bg-transparent ep:p-0 ep:opacity-80 ep:hover:opacity-100"
         type="button"
         tabIndex={isPreviousDisabled ? undefined : -1}
@@ -379,7 +379,7 @@ function Nav({
       </Button>
 
       <Button
-        variant="outline"
+        variant="secondary"
         className="ep:absolute ep:right-0 ep:size-7 ep:bg-transparent ep:p-0 ep:opacity-80 ep:hover:opacity-100"
         type="button"
         tabIndex={isNextDisabled ? undefined : -1}
@@ -415,7 +415,7 @@ function CaptionLabel({
     <Button
       className="ep:h-7 ep:w-full ep:truncate ep:text-sm ep:font-medium"
       variant="ghost"
-      size="sm"
+      size="small"
       onClick={() => setNavView((prev) => (prev === "days" ? "years" : "days"))}
     >
       {navView === "days"
