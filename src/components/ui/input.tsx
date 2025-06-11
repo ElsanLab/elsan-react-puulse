@@ -18,9 +18,11 @@ function Input({
   type,
   icon,
   ...props
-}: { icon: React.ReactNode | undefined } & React.ComponentProps<"input">) {
+}: React.ComponentProps<"input"> & {
+  icon?: React.ReactNode;
+}) {
   return (
-    <div className="ep:relative ep:flex ep:gap-2">
+    <div className="ep:relative ep:flex ep:w-full ep:gap-2">
       <input
         type={type}
         data-slot="input"

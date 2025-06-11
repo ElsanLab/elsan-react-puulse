@@ -3,12 +3,6 @@ import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import { cn } from "@/lib/utils";
 
-/* CHANGES FROM DEFAULT SHADCN
- *
- * fixed prefix placement
- *
- */
-
 function Popover({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {

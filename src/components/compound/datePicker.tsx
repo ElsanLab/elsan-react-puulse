@@ -1,8 +1,6 @@
 import * as React from "react";
-import { format, Locale } from "date-fns";
-import { Calendar as CalendarIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
+import { ChevronDownIcon } from "lucide-react";
+import { formatDate } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -10,90 +8,61 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Matcher } from "react-day-picker";
 
-const DatePicker: React.FC<{
+export function DatePicker({
+  placeholder = "Choisir une date",
+  dateFormat = "dd/MM/yyyy",
+  selected,
+  onSelect,
+  ...props
+}: {
   placeholder?: string;
   dateFormat?: string;
-  locale?: Locale;
   selected?: Date | undefined;
-  onSelect?: (date: Date) => void | undefined;
-  min?: Date | undefined;
-  max?: Date | undefined;
-}> = ({
-  placeholder = "Choisir",
-  dateFormat = "dd/MM/yyyy",
-  locale = undefined,
-  selected = undefined,
-  onSelect = undefined,
-  min = undefined,
-  max = undefined,
-}) => {
-  const [date, setDate] = React.useState<Date>();
+  onSelect?: (date: Date | undefined) => void;
+} & React.ComponentProps<typeof Calendar>) {
+  const [open, setOpen] = React.useState(false);
+  const [date, setDate] = React.useState<Date | undefined>(selected);
 
-  React.useEffect(() => {
-    if (selected === undefined) return;
-
-    if (date !== selected) {
-      setDate(selected);
-    }
-  }, [selected, date]);
-
-  const handleSelect = (val: Date | undefined) => {
-    if (onSelect) {
-      if (val) {
-        onSelect(val);
-      }
-    }
-    setDate(val);
+  const handleOnSelect = (date: Date | undefined) => {
+    setDate(date);
+    setOpen(false);
+    onSelect?.(date);
   };
 
-  const hidden: Matcher | Matcher[] | undefined = React.useMemo(() => {
-    if (!min && !max) {
-      return undefined;
-    }
-
-    const hddn = [];
-    if (min) {
-      hddn.push({ before: min });
-    }
-    if (max) {
-      hddn.push({ after: max });
-    }
-
-    return hddn;
-  }, [min, max]);
+  const value = selected || date;
 
   return (
-    <Popover>
-      <DatePickerTrigger asChild>
-        <Button
-          variant="secondary"
-          className={cn(
-            "ep:w-fit ep:justify-start ep:text-left ep:font-normal",
-            !date && "ep:text-muted-foreground"
-          )}
+    <div className="ep:relative ep:flex ep:gap-2">
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <PopoverTrigger asChild>
+            <Button
+              variant="tertiary"
+              id="date"
+              className="w-48 justify-between font-normal"
+            >
+              {!value && placeholder}
+              {value && value instanceof Date && formatDate(value, dateFormat)}
+              <ChevronDownIcon />
+            </Button>
+          </PopoverTrigger>
+        </PopoverTrigger>
+        <PopoverContent
+          className="ep:w-auto ep:overflow-hidden ep:p-0"
+          align="end"
+          alignOffset={-8}
+          sideOffset={10}
         >
-          <CalendarIcon className="ep:mr-2 ep:h-4 ep:w-4" />
-          {date ? format(date, dateFormat) : <span>{placeholder}</span>}
-        </Button>
-      </DatePickerTrigger>
-      <PopoverContent className="ep:w-auto ep:p-0">
-        <Calendar
-          mode="single"
-          locale={locale}
-          selected={date}
-          onSelect={handleSelect}
-          autoFocus
-          // captionLayout="dropdown"
-          fixedWeeks
-          hidden={hidden}
-        />
-      </PopoverContent>
-    </Popover>
+          <Calendar
+            {...props}
+            mode="single"
+            captionLayout="dropdown"
+            selected={value}
+            onSelect={handleOnSelect}
+          />
+        </PopoverContent>
+      </Popover>
+    </div>
   );
-};
-
-const DatePickerTrigger = PopoverTrigger;
-
-export { DatePicker, DatePickerTrigger };
+}

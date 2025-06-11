@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
   - tertiary & destructiveLight created
  - size:
   - changed to "small", "medium", "large"
-  - handled as compound with content variant
-- content variant created
+  - handled as compound with contentType variant
+- contentType variant created
   - default means text + icon
   - icon means only icon
   - handle size in a compound
@@ -43,48 +43,48 @@ const buttonVariants = cva(
         medium: "",
         large: "",
       },
-      content: {
+      contentType: {
         default: "",
         icon: "",
       },
     },
-    defaultVariants: {
-      variant: "primary",
-      size: "medium",
-      content: "default",
-    },
     compoundVariants: [
       {
         size: "small",
-        content: "default",
+        contentType: "default",
         className: "ep:px-2 ep:h-8 ep:gap-1",
       },
       {
         size: "small",
-        content: "icon",
+        contentType: "icon",
         className: "ep:size-8",
       },
       {
         size: "medium",
-        content: "default",
+        contentType: "default",
         className: "ep:h-9 ep:px-3 ep:gap-2",
       },
       {
         size: "medium",
-        content: "icon",
+        contentType: "icon",
         className: "ep:size-9",
       },
       {
         size: "large",
-        content: "default",
+        contentType: "default",
         className: "ep:h-10 ep:px-3 ep:gap-2",
       },
       {
         size: "large",
-        content: "icon",
+        contentType: "icon",
         className: "ep:size-10",
       },
     ],
+    defaultVariants: {
+      variant: "primary",
+      size: "medium",
+      contentType: "default",
+    },
   }
 );
 
@@ -92,7 +92,7 @@ function Button({
   className,
   variant,
   size,
-  content,
+  contentType,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
@@ -104,7 +104,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, content, className }))}
+      className={cn(buttonVariants({ variant, size, contentType, className }))}
       {...props}
     />
   );

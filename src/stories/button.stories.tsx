@@ -84,7 +84,7 @@ const meta = {
           variant={args.variant}
           size={args.size}
           onClick={() => setCount(count + 1)}
-          content={args.content}
+          contentType={args.content}
           disabled={args.disabled}
         >
           {args.content !== "icon" && args.icon?.includes("Left") && (
