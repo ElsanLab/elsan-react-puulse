@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Input } from "@/components/ui/input";
+import { Mail } from "lucide-react";
 
 interface StoryArgs {
   placeholder: string;
   disabled: boolean;
+  withIcon: boolean;
 }
 
 const meta = {
@@ -16,6 +18,17 @@ const meta = {
         type: "text",
       },
       description: "Placeholder text for the input field.",
+    },
+    withIcon: {
+      control: {
+        type: "boolean",
+      },
+      description: "Whether to display an icon inside the input field.",
+      table: {
+        defaultValue: {
+          summary: "false",
+        },
+      },
     },
     disabled: {
       control: {
@@ -41,6 +54,6 @@ export const Default: Story = {
     disabled: false,
   },
   render: function Render(args) {
-    return <Input {...args} />;
+    return <Input {...args} icon={args.withIcon ? <Mail /> : undefined} />;
   },
 };

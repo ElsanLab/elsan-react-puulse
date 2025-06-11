@@ -89,6 +89,8 @@
 
   --accent-light-hover: var(--puulse-sand-alpha-200);
   --accent-light-pressed: var(--puulse-sand-alpha-100);
+
+  --ring: var(--puulse-indigo-800);
 }
 
 .dark {
@@ -163,4 +165,6 @@
 
   --accent-light-hover: var(--puulse-sand-alpha-300);
   --accent-light-pressed: var(--puulse-sand-alpha-100);
+
+  --ring: var(--puulse-indigo-alpha-400);
 }
