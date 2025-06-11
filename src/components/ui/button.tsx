@@ -5,7 +5,6 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 /*CHANGES
-
  - variants:
   - default changed to primary
   - tertiary & destructiveLight created
@@ -17,7 +16,7 @@ import { cn } from "@/lib/utils";
   - icon means only icon
   - handle size in a compound
 
-- added curosor-pointer
+- added cursor-pointer
 */
 
 const buttonVariants = cva(
@@ -93,6 +92,7 @@ function Button({
   className,
   variant,
   size,
+  content,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
@@ -104,7 +104,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, content, className }))}
       {...props}
     />
   );
