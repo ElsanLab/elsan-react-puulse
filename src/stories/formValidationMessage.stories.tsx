@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { FormValidationMessage } from "@/components/compound/formValidationMessage";
 import { Input } from "@/components/ui/input";

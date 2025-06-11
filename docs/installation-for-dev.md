@@ -1,7 +1,10 @@
 # ELSAN REACT PUULSE - Installation pour dev
 
+#### Storybook 9 nécessite d'avoir installé et d'utiliser Node 20 minimum
+
 ### Package manager
 Le projet utilise **PNPM**, à cause d'une incompatibilité entre Yarn et certaines parties de Storybook.
+
 
 #### > Installation des dépendances:
 
