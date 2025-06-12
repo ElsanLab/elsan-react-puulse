@@ -96,6 +96,7 @@
 .dark {
   --background: var(--puulse-sand-50);
   --foreground: var(--puulse-sand-950);
+
   --border: var(--puulse-sand-500);
   --accent: var(--puulse-sand-300);
 
