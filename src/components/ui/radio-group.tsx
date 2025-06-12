@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { CircleCheck } from "lucide-react";
+import { Check, CircleIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 /* CHANGES FROM DEFAULT SHADCN
  *
+ * border-border instead of border-input
  * Indicator changed to CircleCheck size-3 instead of Circle size-2
  * Added text-primary-foreground to Indicator
- * fixed prefix placement
  *
  */
 
@@ -33,16 +33,17 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        "ep:border-input ep:text-primary ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:dark:bg-input/30 ep:aspect-square ep:size-4 ep:shrink-0 ep:rounded-full ep:border ep:shadow-xs ep:transition-[color,box-shadow] ep:outline-none ep:focus-visible:ring-[3px] ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
+        "ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:dark:bg-input/30 ep:aspect-square ep:size-4 ep:shrink-0 ep:rounded-full ep:transition-[color,box-shadow] ep:outline-none ep:focus-visible:ring-[3px] ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
+        "ep:border-border ep:border ep:bg-action ep:data-[state=checked]:bg-primary ep:data-[state=checked]:border-primary ep:flex ep:items-center ep:justify-center",
         className
       )}
       {...props}
     >
       <RadioGroupPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className="ep:relative ep:flex ep:items-center ep:justify-center"
+        className="ep:text-primary-foreground"
       >
-        <CircleCheck className="ep:fill-primary ep:text-primary-foreground ep:absolute ep:top-1/2 ep:left-1/2 ep:size-4 ep:-translate-x-1/2 ep:-translate-y-1/2" />
+        <Check className="ep:h-3" />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   );
