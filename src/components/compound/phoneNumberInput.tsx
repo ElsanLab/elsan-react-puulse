@@ -88,7 +88,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
 }) => {
   if (!internationalization) {
     return (
-      <div className="ep:border-input ep:rounded-s-md ep:rounded-e-none ep:border-r-0 ep:rounded-md ep:border ep:bg-background ep:px-3 ep:items-center ep:flex">
+      <div className="ep:rounded-s-sm ep:rounded-e-none ep:border-border ep:border ep:border-r-0 ep:bg-background ep:px-3 ep:items-center ep:flex">
         <FlagComponent
           country={selectedCountry}
           countryName={selectedCountry}
@@ -103,7 +103,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
         <Button
           type="button"
           variant="secondary"
-          className="ep:rounded-e-none ep:rounded-s-lg ep:border-r-0"
+          className="ep:rounded-e-none ep:rounded-s-sm ep:border-border ep:border ep:border-r-0"
           disabled={disabled}
         >
           <FlagComponent
@@ -112,7 +112,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
           />
           <ChevronsUpDown
             className={cn(
-              "ep:-mr-2 ep:size-4 ep:opacity-50",
+              "ep:-mx-2 ep:size-4 ep:opacity-50",
               disabled ? "ep:hidden" : "ep:opacity-100"
             )}
           />
