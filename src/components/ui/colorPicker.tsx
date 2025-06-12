@@ -7,11 +7,7 @@ const ColorPicker: React.FC<
     className?: string;
   }
 > = ({ className, ...props }) => {
-  return (
-    <div className={cn("ep:w-full", className)}>
-      <HexColorPicker {...props} />
-    </div>
-  );
+  return <HexColorPicker {...props} className={cn("ep:w-full", className)} />;
 };
 
 export { ColorPicker };

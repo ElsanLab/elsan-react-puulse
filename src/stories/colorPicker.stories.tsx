@@ -13,7 +13,7 @@ export default meta;
 export const Default: StoryObj = {
   args: {},
   render: function Render() {
-    const [color, setColor] = useState("#000");
+    const [color, setColor] = useState("#29acb3");
 
     return (
       <>
