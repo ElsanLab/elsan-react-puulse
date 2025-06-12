@@ -18,10 +18,7 @@ export {
   CommandShortcut,
   CommandSeparator,
 } from "@/components/ui/command";
-export {
-  DatePicker,
-  DatePickerTrigger,
-} from "@/components/compound/datePicker";
+export { DatePicker } from "@/components/compound/datePicker";
 export {
   Dialog,
   DialogClose,
@@ -50,10 +47,10 @@ export { HelperText } from "@/components/compound/helperText";
 export { NumberPicker } from "@/components/compound/numberPicker";
 export { Input } from "@/components/ui/input";
 export {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
+  OTPField,
+  OTPGroup,
+  OTPInput,
+  OTPSeparator,
 } from "@/components/ui/input-otp";
 export { Label } from "@/components/ui/label";
 export { PasswordInput } from "@/components/compound/passwordInput";

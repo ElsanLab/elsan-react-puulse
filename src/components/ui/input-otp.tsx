@@ -1,81 +1,60 @@
 import * as React from "react";
-import { OTPInput, OTPInputContext } from "input-otp";
-import { MinusIcon } from "lucide-react";
-
+import { unstable_OneTimePasswordField as OneTimePasswordField } from "radix-ui";
 import { cn } from "@/lib/utils";
+import { Minus } from "lucide-react";
 
-/* CHANGES FROM DEFAULT SHADCN
- *
- * fixed prefix placement
- *
- */
+/*
+CHANGES
+ - based on radix's OneTimePasswordField (unstable): https://www.radix-ui.com/primitives/docs/components/one-time-password-field
+*/
 
-function InputOTP({
+function OTPField({
+  children,
   className,
-  containerClassName,
+  name,
   ...props
-}: React.ComponentProps<typeof OTPInput> & {
-  containerClassName?: string;
-}) {
+}: React.ComponentProps<typeof OneTimePasswordField.Root> & {}) {
   return (
-    <OTPInput
-      data-slot="input-otp"
-      containerClassName={cn(
-        "ep:flex ep:items-center ep:gap-2 ep:has-disabled:opacity-50",
-        containerClassName
-      )}
-      className={cn("ep:disabled:cursor-not-allowed", className)}
+    <OneTimePasswordField.Root
       {...props}
-    />
-  );
-}
-
-function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="input-otp-group"
-      className={cn("ep:flex ep:items-center", className)}
-      {...props}
-    />
-  );
-}
-
-function InputOTPSlot({
-  index,
-  className,
-  ...props
-}: React.ComponentProps<"div"> & {
-  index: number;
-}) {
-  const inputOTPContext = React.useContext(OTPInputContext);
-  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {};
-
-  return (
-    <div
-      data-slot="input-otp-slot"
-      data-active={isActive}
       className={cn(
-        "ep:data-[active=true]:border-ring ep:data-[active=true]:ring-ring/50 ep:data-[active=true]:aria-invalid:ring-destructive/20 ep:dark:data-[active=true]:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:data-[active=true]:aria-invalid:border-destructive ep:dark:bg-input/30 ep:border-input ep:relative ep:flex ep:h-9 ep:w-9 ep:items-center ep:justify-center ep:border-y ep:border-r ep:text-sm ep:shadow-xs ep:transition-all ep:outline-none ep:first:rounded-l-md ep:first:border-l ep:last:rounded-r-md ep:data-[active=true]:z-10 ep:data-[active=true]:ring-[3px]",
+        "ep:flex ep:w-fit ep:items-center ep:gap-2 ep:has-disabled:opacity-50",
         className
       )}
-      {...props}
     >
-      {char}
-      {hasFakeCaret && (
-        <div className="ep:pointer-events-none ep:absolute ep:inset-0 ep:flex ep:items-center ep:justify-center">
-          <div className="ep:animate-caret-blink ep:bg-foreground ep:h-4 ep:w-px ep:duration-1000" />
-        </div>
-      )}
-    </div>
+      <OneTimePasswordField.HiddenInput name={name} />
+      {children}
+    </OneTimePasswordField.Root>
   );
 }
 
-function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+function OTPGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div data-slot="input-otp-separator" role="separator" {...props}>
-      <MinusIcon />
+    <div className={cn("ep:flex ep:items-center", className)} {...props} />
+  );
+}
+
+function OTPInput({
+  className,
+  ...props
+}: React.ComponentProps<typeof OneTimePasswordField.Input>) {
+  return (
+    <OneTimePasswordField.Input
+      {...props}
+      className={cn(
+        "ep:focus:border-ring ep:focus:ring-ring/50 ep:focus:aria-invalid:ring-destructive/20 ep:dark:focus:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:focus:aria-invalid:border-destructive ep:dark:bg-input/30 ep:border-border ep:relative ep:size-9 ep:border-y ep:border-r ep:text-sm ep:shadow-xs ep:transition-all ep:outline-none ep:first:rounded-l-md ep:first:border-l ep:last:rounded-r-md ep:focus:z-10 ep:focus:ring-[3px] ep:text-center ep:text-input-foreground",
+        className
+      )}
+    />
+  );
+}
+
+function OTPSeparator({ ...props }: React.ComponentProps<"div">) {
+  return (
+    <div role="separator" {...props}>
+      <Minus />
     </div>
   );
 }
 
-export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };
+export { OTPField, OTPGroup, OTPInput, OTPSeparator };

@@ -79,6 +79,8 @@ export const Default: Story = {
     locale: "fr",
   },
   render: (args) => {
+    const [date, setDate] = useState<Date | undefined>(undefined);
+
     return (
       <DatePicker
         placeholder={args.placeholder}
