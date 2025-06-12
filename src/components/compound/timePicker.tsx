@@ -9,7 +9,10 @@ const TimePicker: React.FC<
       {...props}
       type="time"
       disabled={disabled}
-      className={cn("ep:w-fit", className)}
+      className={cn(
+        "ep:w-fit ep:[&::-webkit-calendar-picker-indicator]:hidden ep:[&::-webkit-calendar-picker-indicator]:appearance-none",
+        className
+      )}
     />
   );
 };
