@@ -58,11 +58,11 @@ const NumberPicker: React.FC<
   };
 
   return (
-    <div className="ep:relative">
+    <div className={cn("ep:relative", className)}>
       <Input
         {...props}
         ref={inputRef}
-        className={cn("ep:text-center", className)}
+        className="ep:text-center"
         type="number"
         min={min}
         max={max}
@@ -70,7 +70,7 @@ const NumberPicker: React.FC<
       />
       <Button
         variant="link"
-        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:left-0 ep:text-muted-foreground"
+        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:left-0 ep:text-input-foreground"
         disabled={disabled}
         onMouseDown={startDecreasing}
         onMouseUp={stop}
@@ -80,7 +80,7 @@ const NumberPicker: React.FC<
       </Button>
       <Button
         variant="link"
-        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:right-0 ep:text-muted-foreground"
+        className="ep:absolute ep:top-1/2 ep:-translate-y-1/2 ep:right-0 ep:text-foreground"
         disabled={disabled}
         onMouseDown={startIncreasing}
         onMouseUp={stop}
