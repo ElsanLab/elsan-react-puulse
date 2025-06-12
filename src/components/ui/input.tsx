@@ -6,20 +6,24 @@ import { cn } from "@/lib/utils";
 
 CHANGES
 
- - border-border instead of border-input
- - ep:focus-visible:border-primary-light-border instead of ep:focus-visible:border-ring
- - ep:focus-visible:ring-[2px] instead of ep:focus-visible:ring-[3px]
- - ep:rounded-sm instead of ep:rounded-md
+  - border-border instead of border-input
+  - ep:focus-visible:border-primary-light-border instead of ep:focus-visible:border-ring
+  - ep:focus-visible:ring-[2px] instead of ep:focus-visible:ring-[3px]
+  - ep:rounded-sm instead of ep:rounded-md
+  - handle left content (icon)
+  - handle right content (button)
 
 */
 
 function Input({
   className,
   type,
-  icon,
+  left,
+  right,
   ...props
 }: React.ComponentProps<"input"> & {
-  icon?: React.ReactNode;
+  left?: React.ReactNode;
+  right?: React.ReactNode;
 }) {
   return (
     <div className="ep:relative ep:flex ep:w-full ep:gap-2">
@@ -31,16 +35,23 @@ function Input({
           "ep:focus-visible:border-primary-light-border ep:focus-visible:ring-ring ep:focus-visible:ring-[2px]",
           "ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive",
           {
-            "ep:pl-10 pr-3": !!icon,
-            "ep:px-3": !icon,
+            "ep:pl-10": !!left,
+            "ep:px-3": !left,
+            "ep:pr-10": !!right,
+            "ep:pr-3": !right,
           },
           className
         )}
         {...props}
       />
-      {icon && (
+      {left && (
         <div className="ep:absolute ep:top-1/2 ep:left-0 ep:size-8.5 ep:items-center ep:justify-center ep:flex ep:-translate-y-1/2 ep:border-r ep:border-border ep:text-input-foreground ep:[&_svg:not([class*=size-])]:size-4">
-          {icon}
+          {left}
+        </div>
+      )}
+      {right && (
+        <div className="ep:absolute ep:top-1/2 ep:right-0 ep:size-8.5 ep:items-center ep:justify-center ep:flex ep:-translate-y-1/2 ep:text-input-foreground ep:[&_svg:not([class*=size-])]:size-4">
+          {right}
         </div>
       )}
     </div>
