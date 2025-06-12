@@ -6,7 +6,10 @@ const HelperText: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({
 }) => {
   return (
     <p
-      className={cn("ep:text-sm ep:text-muted-foreground", className)}
+      className={cn(
+        "ep:text-xs ep:text-secondary-foreground ep:leading-4",
+        className
+      )}
       {...props}
     />
   );

@@ -9,7 +9,7 @@ const FormValidationMessage: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       className={cn(
-        "ep:flex ep:items-center ep:gap-x-2 ep:text-destructive",
+        "ep:flex ep:items-center ep:gap-x-2 ep:text-xs ep:text-destructive-light-foreground ep:leading-4",
         className
       )}
       {...props}
