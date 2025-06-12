@@ -71,7 +71,7 @@ const Select: React.FC<{
       classNames={{
         control: (state) =>
           cn(
-            "ep:bg-transparent! ep:border ep:border-input! ep:rounded-md ep:text-base! ep:md:text-sm! ep:min-h-9! ep:shadow-none!",
+            "ep:bg-transparent! ep:border ep:border-border! ep:rounded-md ep:text-base! ep:md:text-sm! ep:min-h-9! ep:shadow-none!",
             {
               "ep:ring-1 ep:ring-ring": state.isFocused,
               "ep:cursor-not-allowed! ep:opacity-50!": state.isDisabled,

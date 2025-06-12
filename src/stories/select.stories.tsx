@@ -13,6 +13,13 @@ interface StoryArgs {
 const meta = {
   title: "Forms/Select",
   component: Select,
+  decorators: [
+    (Story) => (
+      <div style={{ minHeight: "250px", padding: "2rem" }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     placeholder: {
       control: { type: "text" },
