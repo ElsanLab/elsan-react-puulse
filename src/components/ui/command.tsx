@@ -11,12 +11,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-/* CHANGES FROM DEFAULT SHADCN
- *
- * fixed prefix placement
- *
- */
-
 function Command({
   className,
   ...props
@@ -37,10 +31,14 @@ function CommandDialog({
   title = "Command Palette",
   description = "Search for a command to run...",
   children,
+  className,
+  // showCloseButton = true,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string;
   description?: string;
+  className?: string;
+  showCloseButton?: boolean;
 }) {
   return (
     <Dialog {...props}>
@@ -48,7 +46,10 @@ function CommandDialog({
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
-      <DialogContent className="ep:overflow-hidden ep:p-0">
+      <DialogContent
+        className={cn("ep:overflow-hidden ep:p-0", className)}
+        // showCloseButton={showCloseButton}
+      >
         <Command className="ep:[&_[cmdk-group-heading]]:text-muted-foreground ep:**:data-[slot=command-input-wrapper]:h-12 ep:[&_[cmdk-group-heading]]:px-2 ep:[&_[cmdk-group-heading]]:font-medium ep:[&_[cmdk-group]]:px-2 ep:[&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 ep:[&_[cmdk-input-wrapper]_svg]:h-5 ep:[&_[cmdk-input-wrapper]_svg]:w-5 ep:[&_[cmdk-input]]:h-12 ep:[&_[cmdk-item]]:px-2 ep:[&_[cmdk-item]]:py-3 ep:[&_[cmdk-item]_svg]:h-5 ep:[&_[cmdk-item]_svg]:w-5">
           {children}
         </Command>
