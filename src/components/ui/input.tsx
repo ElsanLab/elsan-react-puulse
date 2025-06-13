@@ -26,7 +26,7 @@ function Input({
   right?: React.ReactNode;
 }) {
   return (
-    <div className="ep:relative ep:flex ep:w-full ep:gap-2">
+    <div className={cn("ep:relative ep:flex ep:w-full ep:gap-2", className)}>
       <input
         type={type}
         data-slot="input"
@@ -39,8 +39,7 @@ function Input({
             "ep:px-3": !left,
             "ep:pr-10": !!right,
             "ep:pr-3": !right,
-          },
-          className
+          }
         )}
         {...props}
       />

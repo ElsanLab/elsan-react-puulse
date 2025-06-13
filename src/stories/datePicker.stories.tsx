@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { DatePicker } from "@/components/compound/datePicker";
 import { fr, enUS } from "date-fns/locale";
+import { useState } from "react";
 
 interface StoryArgs {
   placeholder: string;
@@ -79,16 +80,33 @@ export const Default: Story = {
     locale: "fr",
   },
   render: (args) => {
-    const [date, setDate] = useState<Date | undefined>(undefined);
+    const [selectedDate, setSelectedDate] = useState<string>("");
+
+    let endMonth: Date | undefined = args.max;
+    if (!endMonth) {
+      endMonth = new Date();
+      endMonth.setFullYear(endMonth.getFullYear() + 10);
+    }
 
     return (
-      <DatePicker
-        placeholder={args.placeholder}
-        dateFormat={args.dateFormat}
-        min={args.min}
-        max={args.max}
-        locale={args.locale === "fr" ? fr : enUS}
-      />
+      <>
+        <DatePicker
+          id="date-picker"
+          name="date-picker"
+          placeholder={args.placeholder}
+          dateFormat={args.dateFormat}
+          startMonth={args.min ?? new Date()}
+          endMonth={endMonth}
+          locale={args.locale === "fr" ? fr : enUS}
+          value={selectedDate}
+          onChange={(date) => {
+            console.log("onChange:", date);
+            setSelectedDate(date);
+          }}
+        />
+
+        <div>Selected: {selectedDate}</div>
+      </>
     );
   },
 };
