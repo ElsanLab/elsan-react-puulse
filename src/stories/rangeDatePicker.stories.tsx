@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { DatePicker } from "@/components/compound/datePicker";
 import { fr, enUS } from "date-fns/locale";
-import { useState } from "react";
+import { useId, useState } from "react";
+import {
+  RangeDatePicker,
+  RangeDatePickerValue,
+} from "@/components/compound/rangeDatePicker";
 
 interface StoryArgs {
-  placeholder: string;
+  fromPlaceholder: string;
+  toPlaceholder: string;
   dateFormat: string;
   min: Date | undefined;
   max: Date | undefined;
@@ -13,10 +17,14 @@ interface StoryArgs {
 }
 
 const meta = {
-  title: "Forms/DatePickers/DatePicker",
-  component: DatePicker,
+  title: "Forms/DatePickers/RangeDatePicker",
+  component: RangeDatePicker,
   argTypes: {
-    placeholder: {
+    fromPlaceholder: {
+      control: { type: "text" },
+      description: "Placeholder text",
+    },
+    toPlaceholder: {
       control: { type: "text" },
       description: "Placeholder text",
     },
@@ -65,7 +73,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta<typeof RangeDatePicker>;
 
 export default meta;
 
@@ -73,14 +81,17 @@ type Story = StoryObj<StoryArgs>;
 
 export const Default: Story = {
   args: {
-    placeholder: "Choisir",
     dateFormat: "dd/MM/yyyy",
     min: undefined,
     max: undefined,
     locale: "fr",
   },
   render: (args) => {
-    const [selectedDate, setSelectedDate] = useState<string>("");
+    const id = useId();
+
+    const [selectedDate, setSelectedDate] = useState<
+      RangeDatePickerValue | undefined
+    >();
 
     let endMonth: Date | undefined = args.max;
     if (!endMonth) {
@@ -90,21 +101,20 @@ export const Default: Story = {
 
     return (
       <>
-        <DatePicker
-          id="date-picker"
-          name="date-picker"
-          placeholder={args.placeholder}
+        <RangeDatePicker
+          id={id}
+          name="range-date-picker"
           dateFormat={args.dateFormat}
           startMonth={args.min ?? new Date()}
           endMonth={endMonth}
           locale={args.locale === "fr" ? fr : enUS}
           value={selectedDate}
+          fromPlaceholder={args.fromPlaceholder}
+          toPlaceholder={args.toPlaceholder}
           onChange={(date) => {
             setSelectedDate(date);
           }}
         />
-
-        <div>Selected: {selectedDate}</div>
       </>
     );
   },

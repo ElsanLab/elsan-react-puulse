@@ -1,6 +1,5 @@
 import { CalendarIcon } from "lucide-react";
-import { parse, formatDate as formatDateFns } from "date-fns";
-import { Button } from "@/components/ui/button";
+import { parse, format as formatDateFns } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
@@ -10,6 +9,7 @@ import {
 import { Input } from "../ui/input";
 import { ComponentProps, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 const tryParseDate = (
   date: string | undefined,
@@ -77,15 +77,19 @@ export function DatePicker({
       onChange={handleInputChange}
       placeholder={placeholder}
       className={cn("ep:max-w-[136px]", className)}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          setOpen(true);
+        }
+      }}
       right={
         <div className="ep:relative ep:flex ep:gap-2">
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-              <PopoverTrigger asChild>
-                <Button id="date" variant="ghost" contentType="icon">
-                  <CalendarIcon />
-                </Button>
-              </PopoverTrigger>
+              <Button id="date" variant="ghost" contentType="icon">
+                <CalendarIcon />
+              </Button>
             </PopoverTrigger>
             <PopoverContent
               className="ep:w-auto ep:overflow-hidden ep:p-0"
