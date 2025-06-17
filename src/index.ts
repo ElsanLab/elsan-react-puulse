@@ -31,17 +31,7 @@ export {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-export {
-  DialogWrapper,
-  DialogWrapperTrigger,
-  DialogWrapperContent,
-  DialogWrapperHeader,
-  DialogWrapperBody,
-  DialogWrapperFooter,
-  DialogWrapperTitle,
-  DialogWrapperDescription,
-  DialogWrapperClose,
-} from "@/components/compound/dialogWrapper";
+
 export { FormValidationMessage } from "@/components/compound/formValidationMessage";
 export { HelperText } from "@/components/compound/helperText";
 export { NumberPicker } from "@/components/compound/numberPicker";
