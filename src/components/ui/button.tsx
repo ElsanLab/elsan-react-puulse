@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Slot as SlotPrimitive } from "radix-ui";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
 /*CHANGES
+ - Typing: 
+  - detail variant, size & contentType props because using VariantProps break autocompletion
  - variants:
   - default changed to primary
   - tertiary & destructiveLight created
@@ -95,10 +97,19 @@ function Button({
   contentType,
   asChild = false,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
+}: React.ComponentProps<"button"> & {
+  variant?:
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "ghost"
+    | "destructive"
+    | "destructiveLight"
+    | "link";
+  size?: "small" | "medium" | "large";
+  contentType?: "default" | "icon";
+  asChild?: boolean;
+}) {
   const Comp = asChild ? SlotPrimitive.Slot : "button";
 
   return (
