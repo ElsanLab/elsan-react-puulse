@@ -1,3 +1,13 @@
 @import "tailwindcss" prefix(ep);
 
 @import "./tailwind-config.css";
+
+@layer base {
+  * {
+    @apply ep:border-border ep:outline-ring/50;
+  }
+
+  body {
+    @apply ep:bg-background ep:text-foreground;
+  }
+}
