@@ -101,7 +101,7 @@ export function DatePicker({
       value={inputValue}
       onChange={handleInputChange}
       placeholder={placeholder}
-      className={cn("ep:w-[136px]", className)}
+      className={cn("ep:max-w-[136px]", className)}
       onKeyDown={handleInputKeyDown}
       right={
         <div className="ep:relative ep:flex ep:gap-2">

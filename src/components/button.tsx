@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 */
 
 const buttonVariants = cva(
-  "ep:inline-flex ep:items-center ep:justify-center ep:rounded-md ep:whitespace-nowrap ep:cursor-pointer ep:text-sm ep:font-medium ep:transition-all ep:disabled:pointer-events-none ep:disabled:opacity-50 ep:[&_svg]:pointer-events-none ep:[&_svg:not([class*=size-])]:size-4 ep:shrink-0 ep:[&_svg]:shrink-0 ep:outline-none ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:focus-visible:ring-[3px] ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:disabled:opacity-50 ep:disabled:pointer-events-none",
+  "ep:inline-flex ep:items-center ep:justify-center ep:rounded-sm ep:whitespace-nowrap ep:cursor-pointer ep:text-sm ep:font-medium ep:transition-all ep:disabled:pointer-events-none ep:disabled:opacity-50 ep:[&_svg]:pointer-events-none ep:[&_svg:not([class*=size-])]:size-4 ep:shrink-0 ep:[&_svg]:shrink-0 ep:outline-none ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:focus-visible:ring-[3px] ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:disabled:opacity-50 ep:disabled:pointer-events-none",
   {
     variants: {
       variant: {
