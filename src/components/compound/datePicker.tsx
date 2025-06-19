@@ -1,5 +1,5 @@
 import { CalendarIcon } from "lucide-react";
-import { parse, format as formatDateFns } from "date-fns";
+import { parse, format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
@@ -10,21 +10,12 @@ import { Input } from "../ui/input";
 import { ComponentProps, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { dateMatchModifiers } from "react-day-picker";
 
-const tryParseDate = (
-  date: string | undefined,
+const formatValue = (
+  value: Date | null | undefined,
   dateFormat: string
-): Date | undefined => {
-  if (!date) {
-    return undefined;
-  }
-
-  try {
-    return parse(date, dateFormat, new Date());
-  } catch {
-    return undefined;
-  }
-};
+): string => (value ? format(value, dateFormat) : "");
 
 export function DatePicker({
   placeholder = "Choisir une date",
@@ -32,48 +23,76 @@ export function DatePicker({
   className,
   startMonth,
   endMonth,
+  disabled,
   locale,
   value,
+  defaultValue,
   onChange,
   ...props
 }: {
   dateFormat?: string;
   startMonth?: ComponentProps<typeof Calendar>["startMonth"];
   endMonth?: ComponentProps<typeof Calendar>["endMonth"];
+  disabled?: ComponentProps<typeof Calendar>["disabled"];
   locale?: ComponentProps<typeof Calendar>["locale"];
-  onChange?: (value: string) => void;
+  value?: Date | null;
+  defaultValue?: Date;
+  onChange?: (value: Date | null) => void;
 } & Omit<React.ComponentProps<typeof Input>, "type" | "onChange">) {
+  const isControlled = value !== undefined;
+
   const [open, setOpen] = useState(false);
 
-  const [inputValue, setInputValue] = useState<string | undefined>(
-    value as string | undefined
+  const [inputValue, setInputValue] = useState<string>(
+    formatValue(defaultValue, dateFormat)
   );
 
   const [calendarValue, setCalendarValue] = useState<Date | undefined>(
-    tryParseDate(value as string | undefined, dateFormat)
+    defaultValue
   );
 
+  const [calendarMonth, setCalendarMonth] = useState<Date | undefined>();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCalendarValue(tryParseDate(e.target.value, dateFormat));
-    setInputValue(e.target.value);
-    onChange?.(e.target.value);
+    const newVal = e.target.value?.trim() ?? "";
+
+    setInputValue(newVal);
+
+    if (newVal.trim() === "") {
+      setCalendarValue(undefined);
+      return;
+    }
+
+    let date: Date | undefined;
+    try {
+      date = parse(newVal, dateFormat, new Date());
+    } catch {
+      date = undefined;
+    }
+
+    if (date && (!disabled || !dateMatchModifiers(date, disabled))) {
+      setCalendarValue(date);
+      setCalendarMonth(date);
+    }
+
+    onChange?.(date ?? null);
   };
 
   const handleCalendarSelect = (date: Date | undefined) => {
     setOpen(false);
 
-    const inputValue = date ? formatDateFns(date, dateFormat) : undefined;
-
     setCalendarValue(date);
-    setInputValue(inputValue);
+    setCalendarMonth(date);
+    setInputValue(formatValue(date, dateFormat));
 
-    onChange?.(inputValue ?? "");
+    onChange?.(date ?? null);
   };
 
   return (
     <Input
       {...props}
-      value={value ?? inputValue}
+      disabled={disabled === true}
+      value={inputValue}
       onChange={handleInputChange}
       placeholder={placeholder}
       className={cn("ep:max-w-[136px]", className)}
@@ -87,7 +106,12 @@ export function DatePicker({
         <div className="ep:relative ep:flex ep:gap-2">
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-              <Button id="date" variant="ghost" contentType="icon">
+              <Button
+                id="date"
+                variant="ghost"
+                contentType="icon"
+                disabled={disabled === true}
+              >
                 <CalendarIcon />
               </Button>
             </PopoverTrigger>
@@ -100,8 +124,11 @@ export function DatePicker({
               <Calendar
                 mode="single"
                 captionLayout="dropdown"
-                selected={calendarValue}
+                selected={isControlled ? value : calendarValue}
                 onSelect={handleCalendarSelect}
+                month={calendarMonth}
+                onMonthChange={setCalendarMonth}
+                disabled={disabled}
                 startMonth={startMonth}
                 endMonth={endMonth}
                 locale={locale}
