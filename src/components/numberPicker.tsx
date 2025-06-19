@@ -1,5 +1,5 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/components/input";
+import { Button } from "@/components/button";
 import { Minus, Plus } from "lucide-react";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -62,7 +62,7 @@ const NumberPicker: React.FC<
       <Input
         {...props}
         ref={inputRef}
-        className="ep:text-center"
+        className="ep:text-center ep:placeholder:text-center"
         type="number"
         min={min}
         max={max}

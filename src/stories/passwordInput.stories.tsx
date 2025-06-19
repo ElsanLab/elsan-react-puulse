@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PasswordInput } from "@/components/compound/passwordInput";
+import { PasswordInput } from "@/components/passwordInput";
 
 interface StoryArgs {
   placeholder: string;

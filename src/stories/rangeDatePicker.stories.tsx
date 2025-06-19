@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { fr, enUS } from "date-fns/locale";
 import { useId, useState } from "react";
-import { RangeDatePicker } from "@/components/compound/rangeDatePicker";
+import { RangeDatePicker } from "@/components/rangeDatePicker";
 import { DateRange } from "react-day-picker";
 import {
   addDays,

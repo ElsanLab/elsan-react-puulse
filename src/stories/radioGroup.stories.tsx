@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/radio-group";
+import { Label } from "@/components/label";
 
 interface StoryArgs {
   disabled: boolean;

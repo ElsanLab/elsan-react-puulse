@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/input";
 
 const TimePicker: React.FC<
   Omit<React.ComponentProps<typeof Input>, "type">

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PhoneNumberInput } from "@/components/compound/phoneNumberInput";
+import { PhoneNumberInput } from "@/components/phoneNumberInput";
 
 interface StoryArgs {
   required: boolean;

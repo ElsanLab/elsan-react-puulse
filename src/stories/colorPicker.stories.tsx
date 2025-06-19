@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ColorPicker } from "@/components/ui/colorPicker";
+import { ColorPicker } from "@/components/colorPicker";
 import { useState } from "react";
 
 const meta = {

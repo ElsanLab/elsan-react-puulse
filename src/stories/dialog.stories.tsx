@@ -9,9 +9,9 @@ import {
   DialogTrigger,
   DialogFooter,
   DialogClose,
-} from "@/components/ui/dialog";
+} from "@/components/dialog";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 
 interface StoryArgs {
   size: "sm" | "md" | "lg" | "xl";

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { HelperText } from "@/components/compound/helperText";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { HelperText } from "@/components/helperText";
+import { Label } from "@/components/label";
+import { Input } from "@/components/input";
 
 type StoryArgs = {
   text: string;

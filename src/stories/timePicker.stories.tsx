@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TimePicker } from "@/components/compound/timePicker";
+import { TimePicker } from "@/components/timePicker";
 
 interface StoryArgs {
   disabled: boolean;

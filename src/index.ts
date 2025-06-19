@@ -1,12 +1,12 @@
 export { cn } from "@/lib/utils";
 
-export { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-export { Badge } from "@/components/ui/badge";
-export { Button, buttonVariants } from "@/components/ui/button";
-export { Calendar } from "@/components/ui/calendar";
-export { Checkbox } from "@/components/ui/checkbox";
-export { ColorPicker } from "@/components/ui/colorPicker";
+export { Alert, AlertTitle, AlertDescription } from "@/components/alert";
+export { Avatar, AvatarImage, AvatarFallback } from "@/components/avatar";
+export { Badge } from "@/components/badge";
+export { Button, buttonVariants } from "@/components/button";
+export { Calendar } from "@/components/calendar";
+export { Checkbox } from "@/components/checkbox";
+export { ColorPicker } from "@/components/colorPicker";
 export {
   Command,
   CommandDialog,
@@ -17,8 +17,8 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
-} from "@/components/ui/command";
-export { DatePicker } from "@/components/compound/datePicker";
+} from "@/components/command";
+export { DatePicker } from "@/components/datePicker";
 export {
   Dialog,
   DialogClose,
@@ -30,31 +30,31 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/components/dialog";
 
-export { FormValidationMessage } from "@/components/compound/formValidationMessage";
-export { HelperText } from "@/components/compound/helperText";
-export { NumberPicker } from "@/components/compound/numberPicker";
-export { Input } from "@/components/ui/input";
+export { FormValidationMessage } from "@/components/formValidationMessage";
+export { HelperText } from "@/components/helperText";
+export { NumberPicker } from "@/components/numberPicker";
+export { Input } from "@/components/input";
 export {
   OTPField,
   OTPGroup,
   OTPInput,
   OTPSeparator,
-} from "@/components/ui/input-otp";
-export { Label } from "@/components/ui/label";
-export { PasswordInput } from "@/components/compound/passwordInput";
-export { PhoneNumberInput } from "@/components/compound/phoneNumberInput";
+} from "@/components/input-otp";
+export { Label } from "@/components/label";
+export { PasswordInput } from "@/components/passwordInput";
+export { PhoneNumberInput } from "@/components/phoneNumberInput";
 export {
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverAnchor,
-} from "@/components/ui/popover";
-export { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-export { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-export { Select } from "@/components/ui/select";
-export type { SelectOption } from "@/components/ui/select";
+} from "@/components/popover";
+export { RadioGroup, RadioGroupItem } from "@/components/radio-group";
+export { ScrollArea, ScrollBar } from "@/components/scroll-area";
+export { Select } from "@/components/select";
+export type { SelectOption } from "@/components/select";
 export {
   Sheet,
   SheetTrigger,
@@ -65,13 +65,13 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
-} from "@/components/ui/sheet";
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-export { TimePicker } from "@/components/compound/timePicker";
-export { Toaster } from "@/components/ui/sonner";
+} from "@/components/sheet";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/tabs";
+export { TimePicker } from "@/components/timePicker";
+export { Toaster } from "@/components/sonner";
 export {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from "@/components/ui/tooltip";
+} from "@/components/tooltip";

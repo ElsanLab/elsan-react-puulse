@@ -5,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
   TooltipContent,
-} from "@/components/ui/tooltip";
+} from "@/components/tooltip";
 
 interface TooltipStoryArgs {
   text: string;

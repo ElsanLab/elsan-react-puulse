@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { DatePicker } from "@/components/compound/datePicker";
+import { DatePicker } from "@/components/datePicker";
 import { fr, enUS } from "date-fns/locale";
 import { useState } from "react";
 import { Matcher } from "react-day-picker";

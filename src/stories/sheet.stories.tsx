@@ -10,9 +10,9 @@ import {
   SheetFooter,
   SheetClose,
   SheetBody,
-} from "@/components/ui/sheet";
+} from "@/components/sheet";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 
 interface StoryArgs {
   size: "sm" | "md" | "lg" | "xl";

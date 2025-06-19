@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Select } from "@/components/ui/select";
+import { Select } from "@/components/select";
 import { useState } from "react";
 
 interface StoryArgs {

@@ -1,15 +1,11 @@
 import { CalendarIcon } from "lucide-react";
 import { parse, format } from "date-fns";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Input } from "../ui/input";
+import { Calendar } from "@/components/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
+import { Input } from "./input";
 import { ComponentProps, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
+import { Button } from "./button";
 import { dateMatchModifiers } from "react-day-picker";
 
 const formatInputValue = (
@@ -105,7 +101,7 @@ export function DatePicker({
       value={inputValue}
       onChange={handleInputChange}
       placeholder={placeholder}
-      className={cn("ep:max-w-[136px]", className)}
+      className={cn("ep:w-[136px]", className)}
       onKeyDown={handleInputKeyDown}
       right={
         <div className="ep:relative ep:flex ep:gap-2">

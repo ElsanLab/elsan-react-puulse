@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/checkbox";
 
 interface StoryArgs {
   label: string;

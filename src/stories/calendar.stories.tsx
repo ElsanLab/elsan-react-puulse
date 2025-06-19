@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/components/calendar";
 import { useMemo, useState } from "react";
 
 import { fr, enUS } from "date-fns/locale";
 import { VariantProps } from "class-variance-authority";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/button";
 import { DateRange } from "react-day-picker";
 import { formatDate } from "date-fns";
 

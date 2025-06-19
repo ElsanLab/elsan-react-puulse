@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { NumberPicker } from "@/components/compound/numberPicker";
+import { NumberPicker } from "@/components/numberPicker";
 
 interface StoryArgs {
   placeholder: string;

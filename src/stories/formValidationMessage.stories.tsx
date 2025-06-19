@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { FormValidationMessage } from "@/components/compound/formValidationMessage";
-import { Input } from "@/components/ui/input";
+import { FormValidationMessage } from "@/components/formValidationMessage";
+import { Input } from "@/components/input";
 import { useId } from "react";
-import { Label } from "@/components/ui/label";
+import { Label } from "@/components/label";
 
 interface StoryArgs {
   text: string;

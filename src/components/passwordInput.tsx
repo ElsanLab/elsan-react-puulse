@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/input";
 import { Eye, EyeClosed, LockIcon } from "lucide-react";
 
 const PasswordInput: React.FC<Omit<React.ComponentProps<"input">, "type">> = ({

@@ -3,7 +3,7 @@ import {
   OTPGroup,
   OTPInput,
   OTPSeparator,
-} from "@/components/ui/input-otp";
+} from "@/components/input-otp";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Fragment } from "react/jsx-runtime";
 

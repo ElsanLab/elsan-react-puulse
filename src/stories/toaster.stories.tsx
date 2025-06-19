@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
+import { Button } from "@/components/button";
+import { Toaster } from "@/components/sonner";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { toast } from "sonner";
 

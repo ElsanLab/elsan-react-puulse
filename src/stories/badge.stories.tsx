@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { User } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/badge";
 
 interface BadgeStoryArgs {
   variant: "neutral" | "info" | "success" | "warning" | "destructive";
