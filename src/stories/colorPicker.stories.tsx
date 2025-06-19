@@ -17,7 +17,7 @@ export const Default: StoryObj = {
 
     return (
       <>
-        <ColorPicker color={color} onChange={setColor} />
+        <ColorPicker value={color} onChange={setColor} />
         <div className="ep:mt-8 ep:text-sm ep:flex ep:items-center ep:gap-x-2">
           Selected color:
           <div className="ep:size-4" style={{ backgroundColor: color }} />

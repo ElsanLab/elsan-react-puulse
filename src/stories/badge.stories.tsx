@@ -17,14 +17,7 @@ const meta = {
       control: {
         type: "select",
       },
-      options: [
-        "neutral",
-        "primary",
-        "info",
-        "success",
-        "warning",
-        "destructive",
-      ],
+      options: ["neutral", "info", "success", "warning", "destructive"],
       table: {
         defaultValue: { summary: "neutral" },
       },
