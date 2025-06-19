@@ -2,22 +2,24 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { DatePicker } from "@/components/compound/datePicker";
 import { fr, enUS } from "date-fns/locale";
-import { ComponentProps, useState } from "react";
+import { useState } from "react";
 import { Matcher } from "react-day-picker";
 import {
   addDays,
+  addYears,
   endOfToday,
   nextMonday,
   nextSunday,
   startOfToday,
   startOfTomorrow,
+  subYears,
 } from "date-fns";
 
 interface StoryArgs {
   placeholder: string;
   dateFormat: string;
-  min: Date | undefined;
-  max: Date | undefined;
+  startMonth: Date | undefined;
+  endMonth: Date | undefined;
   locale: string;
   disabled:
     | "true"
@@ -70,15 +72,15 @@ const meta = {
       },
     },
 
-    min: {
+    startMonth: {
       control: { type: "date" },
-      description: "Minimum selectable date",
+      description: "Minimum selectable month",
       table: {
         type: { summary: "Date" },
       },
     },
 
-    max: {
+    endMonth: {
       control: { type: "date" },
       description: "Maximum selectable date",
       table: {
@@ -140,19 +142,13 @@ export const Default: Story = {
   args: {
     placeholder: "Choisir",
     dateFormat: "dd/MM/yyyy",
-    min: undefined,
-    max: undefined,
+    startMonth: subYears(startOfToday(), 2),
+    endMonth: addYears(startOfToday(), 2),
     locale: "fr",
     disabled: "false",
   },
   render: (args) => {
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-
-    let endMonth: Date | undefined = args.max;
-    if (!endMonth) {
-      endMonth = new Date();
-      endMonth.setFullYear(endMonth.getFullYear() + 10);
-    }
 
     let disabled: Matcher | Matcher[] | boolean = false;
     switch (args.disabled) {
@@ -217,8 +213,8 @@ export const Default: Story = {
           name="date-picker"
           placeholder={args.placeholder}
           dateFormat={args.dateFormat}
-          startMonth={args.min ?? new Date()}
-          endMonth={endMonth}
+          startMonth={args.startMonth}
+          endMonth={args.endMonth}
           disabled={disabled}
           locale={args.locale === "fr" ? fr : enUS}
           value={selectedDate}

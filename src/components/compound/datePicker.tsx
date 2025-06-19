@@ -12,22 +12,23 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { dateMatchModifiers } from "react-day-picker";
 
-const formatValue = (
+const formatInputValue = (
   value: Date | null | undefined,
   dateFormat: string
 ): string => (value ? format(value, dateFormat) : "");
 
 export function DatePicker({
-  placeholder = "Choisir une date",
-  dateFormat = "dd/MM/yyyy",
   className,
-  startMonth,
-  endMonth,
-  disabled,
-  locale,
-  value,
+  dateFormat = "dd/MM/yyyy",
   defaultValue,
+  disabled,
+  endMonth,
+  locale,
+  numberOfMonths = 1,
   onChange,
+  placeholder = "Choisir une date",
+  startMonth,
+  value,
   ...props
 }: {
   dateFormat?: string;
@@ -38,13 +39,12 @@ export function DatePicker({
   value?: Date | null;
   defaultValue?: Date;
   onChange?: (value: Date | null) => void;
+  numberOfMonths?: ComponentProps<typeof Calendar>["numberOfMonths"];
 } & Omit<React.ComponentProps<typeof Input>, "type" | "onChange">) {
-  const isControlled = value !== undefined;
-
   const [open, setOpen] = useState(false);
 
   const [inputValue, setInputValue] = useState<string>(
-    formatValue(defaultValue, dateFormat)
+    formatInputValue(defaultValue, dateFormat)
   );
 
   const [calendarValue, setCalendarValue] = useState<Date | undefined>(
@@ -63,19 +63,27 @@ export function DatePicker({
       return;
     }
 
-    let date: Date | undefined;
-    try {
-      date = parse(newVal, dateFormat, new Date());
-    } catch {
+    let date: Date | undefined = parse(newVal, dateFormat, new Date());
+    if (isNaN(date.getTime())) {
       date = undefined;
     }
 
-    if (date && (!disabled || !dateMatchModifiers(date, disabled))) {
+    if (!!disabled && !!date && dateMatchModifiers(date, disabled)) {
+      date = undefined;
+    }
+
+    if (date) {
       setCalendarValue(date);
       setCalendarMonth(date);
     }
-
     onChange?.(date ?? null);
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setOpen(true);
+    }
   };
 
   const handleCalendarSelect = (date: Date | undefined) => {
@@ -83,10 +91,12 @@ export function DatePicker({
 
     setCalendarValue(date);
     setCalendarMonth(date);
-    setInputValue(formatValue(date, dateFormat));
+    setInputValue(formatInputValue(date, dateFormat));
 
     onChange?.(date ?? null);
   };
+
+  const isControlled = value !== undefined;
 
   return (
     <Input
@@ -96,12 +106,7 @@ export function DatePicker({
       onChange={handleInputChange}
       placeholder={placeholder}
       className={cn("ep:max-w-[136px]", className)}
-      onKeyDown={(e) => {
-        if (e.key === "ArrowDown") {
-          e.preventDefault();
-          setOpen(true);
-        }
-      }}
+      onKeyDown={handleInputKeyDown}
       right={
         <div className="ep:relative ep:flex ep:gap-2">
           <Popover open={open} onOpenChange={setOpen}>
@@ -132,6 +137,7 @@ export function DatePicker({
                 startMonth={startMonth}
                 endMonth={endMonth}
                 locale={locale}
+                numberOfMonths={numberOfMonths}
               />
             </PopoverContent>
           </Popover>
