@@ -210,8 +210,6 @@ export const Default: Story = {
         disabled = false;
     }
 
-    console.log("Disabled dates:", disabled);
-
     return (
       <>
         <DatePicker
