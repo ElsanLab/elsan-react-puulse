@@ -1,20 +1,11 @@
 import { cn } from "@/lib/utils";
-import SelectPrimitive, {
-  ActionMeta,
-  MultiValue,
-  SingleValue,
-} from "react-select";
+import { useState } from "react";
+import SelectPrimitive, { ActionMeta, PropsValue } from "react-select";
 
 export type SelectOption = {
   label: string;
   value: string;
 };
-
-/* CHANGES FROM DEFAULT SHADCN
- *
- * Everything, this is not a shadcn component
- *
- */
 
 const Select: React.FC<{
   options: SelectOption[];
@@ -26,18 +17,32 @@ const Select: React.FC<{
   isDisabled?: boolean;
   isSearchable?: boolean;
 }> = ({ options, placeholder = "Sélectionner", onChange, ...props }) => {
+  const isControlled = props.value !== undefined;
+
+  const [selectedOptions, setSelectedOptions] = useState<
+    PropsValue<SelectOption> | undefined
+  >();
+
   const handleChange: (
-    newValue: MultiValue<SelectOption> | SingleValue<SelectOption>,
+    newValue: PropsValue<SelectOption> | undefined,
     actionMeta: ActionMeta<SelectOption>
-  ) => void = (options) => {
-    if (Array.isArray(options)) {
-      onChange(options.map((option) => option.value));
+  ) => void = (newValue) => {
+    if (!isControlled) {
+      setSelectedOptions(newValue);
+    }
+
+    if (Array.isArray(newValue)) {
+      onChange?.(newValue.map((option) => option.value));
     } else {
-      onChange((options as SelectOption | undefined)?.value || null);
+      onChange?.((newValue as SelectOption | undefined)?.value || null);
     }
   };
 
   const getSelectedOptions = () => {
+    if (!isControlled) {
+      return selectedOptions;
+    }
+
     if (props.isMulti) {
       return options.filter((option) =>
         (props.value as string[])?.includes(option.value)
