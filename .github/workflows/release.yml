@@ -84,7 +84,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "Commit release files" || echo "No changes to commit"
+          git commit -m "${{ github.event.inputs.version }}" || echo "No changes to commit"
           git tag ${{ github.event.inputs.version }}
           git push origin ${{ github.event.inputs.version }}
           git reset --soft HEAD~1  # Undo commit but keep changes staged
