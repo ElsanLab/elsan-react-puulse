@@ -66,6 +66,16 @@ export {
   SheetTitle,
   SheetDescription,
 } from "@/components/sheet";
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+} from "@/components/table";
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/tabs";
 export { TimePicker } from "@/components/timePicker";
 export { Toaster } from "@/components/sonner";
