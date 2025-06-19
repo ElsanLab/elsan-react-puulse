@@ -18,12 +18,12 @@ const badgeVariants = cva(
     variants: {
       variant: {
         neutral:
-          "ep:bg-secondary-light ep:border-secondary-light-border ep:text-secondary-light-foreground",
-        info: "ep:bg-info-light ep:border-info-light-border ep:text-info-light-foreground",
+          "ep:bg-secondary ep:border-secondary-border ep:text-secondary-foreground",
+        info: "ep:bg-info ep:border-info-border ep:text-info-foreground",
         success:
-          "ep:bg-success-light ep:border-success-light-border ep:text-success-light-foreground",
+          "ep:bg-success ep:border-success-border ep:text-success-foreground",
         warning:
-          "ep:bg-warning-light ep:border-warning-light-border ep:text-warning-light-foreground",
+          "ep:bg-warning ep:border-warning-border ep:text-warning-foreground",
         destructive:
           "ep:bg-destructive-light ep:border-destructive-light-border ep:text-destructive-light-foreground",
       },
