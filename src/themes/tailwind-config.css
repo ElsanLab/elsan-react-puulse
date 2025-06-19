@@ -104,8 +104,11 @@
   --font-sans: var(--sans);
 
   /** 
-    Custom spacings 
+    Spacings 
   */
+  --spacing: var(--spacing);
+
+  /* Custom spacings */
   --spacing-dialog-sm: 20%;
   --spacing-dialog-md: 33%;
   --spacing-dialog-lg: 50%;
