@@ -59,9 +59,9 @@ const fallbackVariants = cva(
   {
     variants: {
       variant: {
-        info: "ep:bg-info-light ep:text-info-light-foreground",
-        success: "ep:bg-success-light ep:text-success-light-foreground",
-        warning: "ep:bg-warning-light ep:text-warning-light-foreground",
+        info: "ep:bg-info ep:text-info-foreground",
+        success: "ep:bg-success ep:text-success-foreground",
+        warning: "ep:bg-warning ep:text-warning-foreground",
         destructive:
           "ep:bg-destructive-light ep:text-destructive-light-foreground",
       },
