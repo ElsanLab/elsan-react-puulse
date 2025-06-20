@@ -31,7 +31,23 @@ export {
   DialogTitle,
   DialogTrigger,
 } from "@/components/dialog";
-
+export {
+  DropdownMenu,
+  DropdownMenuPortal,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+} from "@/components/dropdown-menu";
 export { FormValidationMessage } from "@/components/formValidationMessage";
 export { HelperText } from "@/components/helperText";
 export { NumberPicker } from "@/components/numberPicker";
