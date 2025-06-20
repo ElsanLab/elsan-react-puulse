@@ -1,7 +1,7 @@
 import * as React from "react";
 import { unstable_OneTimePasswordField as OneTimePasswordField } from "radix-ui";
 import { cn } from "@/lib/utils";
-import { Minus } from "lucide-react";
+import { Separator } from "./separator";
 
 /*
 CHANGES
@@ -49,12 +49,11 @@ function OTPInput({
   );
 }
 
-function OTPSeparator({ ...props }: React.ComponentProps<"div">) {
-  return (
-    <div role="separator" {...props}>
-      <Minus />
-    </div>
-  );
+function OTPSeparator({
+  className,
+  ...props
+}: React.ComponentProps<typeof Separator>) {
+  return <Separator className={cn("ep:max-w-4", className)} {...props} />;
 }
 
 export { OTPField, OTPGroup, OTPInput, OTPSeparator };

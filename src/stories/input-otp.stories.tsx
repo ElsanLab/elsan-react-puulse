@@ -43,7 +43,7 @@ export const Default: Story = {
       description: "The number of characters in each group.",
       table: {
         defaultValue: {
-          summary: 0,
+          summary: "0",
         },
       },
     },
@@ -54,13 +54,15 @@ export const Default: Story = {
       description: "Whether to show a separator between groups.",
       table: {
         defaultValue: {
-          summary: false,
+          summary: "false",
         },
       },
     },
   },
   args: {
     length: 6,
+    groupBy: 0,
+    separator: true,
   },
   render: function Render(args) {
     const groups: Array<number> = [];
