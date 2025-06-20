@@ -76,14 +76,14 @@ const Select: React.FC<{
       classNames={{
         control: (state) =>
           cn(
-            "ep:bg-transparent! ep:border ep:border-border! ep:rounded-md ep:text-base! ep:md:text-sm! ep:min-h-9! ep:shadow-none!",
+            "ep:bg-transparent! ep:border ep:border-border! ep:rounded-sm ep:text-base! ep:md:text-sm! ep:min-h-9! ep:shadow-none!",
             {
               "ep:ring-1 ep:ring-ring": state.isFocused,
               "ep:cursor-not-allowed! ep:opacity-50!": state.isDisabled,
             }
           ),
         menu: () =>
-          "ep:bg-popover! ep:border! ep:rounded-md! ep:py-0! ep:overflow-hidden! ep:shadow-md!",
+          "ep:bg-popover! ep:border! ep:rounded-sm! ep:py-0! ep:overflow-hidden! ep:shadow-md!",
         menuList: () => "ep:py-0!",
         option: (state) =>
           cn("ep:text-foreground! ep:text-base! ep:md:text-sm!", {

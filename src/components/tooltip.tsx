@@ -53,7 +53,7 @@ function TooltipContent({
         data-slot="tooltip-content"
         sideOffset={sideOffset}
         className={cn(
-          "ep:bg-neutral ep:text-neutral-foreground ep:animate-in ep:fade-in-0 ep:zoom-in-95 ep:data-[state=closed]:animate-out ep:data-[state=closed]:fade-out-0 ep:data-[state=closed]:zoom-out-95 ep:data-[side=bottom]:slide-in-from-top-2 ep:data-[side=left]:slide-in-from-right-2 ep:data-[side=right]:slide-in-from-left-2 ep:data-[side=top]:slide-in-from-bottom-2 ep:z-50 ep:w-fit ep:origin-(--radix-tooltip-content-transform-origin) ep:rounded-md ep:px-3 ep:py-1.5 ep:text-xs ep:text-balance",
+          "ep:bg-neutral ep:text-neutral-foreground ep:animate-in ep:fade-in-0 ep:zoom-in-95 ep:data-[state=closed]:animate-out ep:data-[state=closed]:fade-out-0 ep:data-[state=closed]:zoom-out-95 ep:data-[side=bottom]:slide-in-from-top-2 ep:data-[side=left]:slide-in-from-right-2 ep:data-[side=right]:slide-in-from-left-2 ep:data-[side=top]:slide-in-from-bottom-2 ep:z-50 ep:w-fit ep:origin-(--radix-tooltip-content-transform-origin) ep:rounded-sm ep:px-3 ep:py-1.5 ep:text-xs ep:text-balance",
           className
         )}
         {...props}

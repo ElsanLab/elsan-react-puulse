@@ -19,7 +19,7 @@ function Command({
     <CommandPrimitive
       data-slot="command"
       className={cn(
-        "ep:bg-popover ep:text-popover-foreground ep:flex ep:h-full ep:w-full ep:flex-col ep:overflow-hidden ep:rounded-md",
+        "ep:bg-popover ep:text-popover-foreground ep:flex ep:h-full ep:w-full ep:flex-col ep:overflow-hidden ep:rounded-sm",
         className
       )}
       {...props}
@@ -71,7 +71,7 @@ function CommandInput({
       <CommandPrimitive.Input
         data-slot="command-input"
         className={cn(
-          "ep:placeholder:text-muted-foreground ep:flex ep:h-10 ep:w-full ep:rounded-md ep:bg-transparent ep:py-3 ep:text-sm ep:outline-hidden ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
+          "ep:placeholder:text-muted-foreground ep:flex ep:h-10 ep:w-full ep:rounded-sm ep:bg-transparent ep:py-3 ep:text-sm ep:outline-hidden ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
           className
         )}
         {...props}

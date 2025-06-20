@@ -71,7 +71,7 @@ function Calendar({
           defaultClassNames.dropdowns
         ),
         dropdown_root: cn(
-          "ep:relative ep:has-focus:border-ring ep:border ep:border-input ep:shadow-xs ep:has-focus:ring-ring/50 ep:has-focus:ring-[3px] ep:rounded-md",
+          "ep:relative ep:has-focus:border-ring ep:border ep:border-input ep:shadow-xs ep:has-focus:ring-ring/50 ep:has-focus:ring-[3px] ep:rounded-sm",
           defaultClassNames.dropdown_root
         ),
         dropdown: cn(
@@ -82,13 +82,13 @@ function Calendar({
           "ep:select-none ep:font-medium",
           captionLayout === "label"
             ? "ep:text-sm"
-            : "ep:rounded-md ep:pl-2 ep:pr-1 ep:flex ep:items-center ep:gap-1 ep:text-sm ep:h-8 ep:[&>svg]:text-muted-foreground ep:[&>svg]:size-3.5",
+            : "ep:rounded-sm ep:pl-2 ep:pr-1 ep:flex ep:items-center ep:gap-1 ep:text-sm ep:h-8 ep:[&>svg]:text-muted-foreground ep:[&>svg]:size-3.5",
           defaultClassNames.caption_label
         ),
         table: "ep:w-full ep:border-collapse",
         weekdays: cn("ep:flex", defaultClassNames.weekdays),
         weekday: cn(
-          "ep:text-muted-foreground ep:rounded-md ep:flex-1 ep:font-normal ep:text-[0.8rem] ep:select-none",
+          "ep:text-muted-foreground ep:rounded-sm ep:flex-1 ep:font-normal ep:text-[0.8rem] ep:select-none",
           defaultClassNames.weekday
         ),
         week: cn("ep:flex ep:w-full ep:mt-2", defaultClassNames.week),
@@ -114,7 +114,7 @@ function Calendar({
           defaultClassNames.range_end
         ),
         today: cn(
-          "ep:bg-accent ep:text-accent-foreground ep:rounded-md ep:data-[selected=true]:rounded-none",
+          "ep:bg-accent ep:text-accent-foreground ep:rounded-sm ep:data-[selected=true]:rounded-none",
           defaultClassNames.today
         ),
         outside: cn(
@@ -211,7 +211,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        "ep:data-[selected-single=true]:bg-primary ep:data-[selected-single=true]:text-primary-foreground ep:data-[range-middle=true]:bg-accent ep:data-[range-middle=true]:text-accent-foreground ep:data-[range-start=true]:bg-primary ep:data-[range-start=true]:text-primary-foreground ep:data-[range-end=true]:bg-primary ep:data-[range-end=true]:text-primary-foreground ep:group-data-[focused=true]/day:border-ring ep:group-data-[focused=true]/day:ring-ring/50 ep:dark:hover:text-accent-foreground ep:flex ep:aspect-square ep:size-auto ep:w-full ep:min-w-(--cell-size) ep:flex-col ep:gap-1 ep:leading-none ep:font-normal ep:group-data-[focused=true]/day:relative ep:group-data-[focused=true]/day:z-10 ep:group-data-[focused=true]/day:ring-[3px] ep:data-[range-end=true]:rounded-md ep:data-[range-end=true]:rounded-r-md ep:data-[range-middle=true]:rounded-none ep:data-[range-start=true]:rounded-md ep:data-[range-start=true]:rounded-l-md ep:[&>span]:text-xs ep:[&>span]:opacity-70",
+        "ep:data-[selected-single=true]:bg-primary ep:data-[selected-single=true]:text-primary-foreground ep:data-[range-middle=true]:bg-accent ep:data-[range-middle=true]:text-accent-foreground ep:data-[range-start=true]:bg-primary ep:data-[range-start=true]:text-primary-foreground ep:data-[range-end=true]:bg-primary ep:data-[range-end=true]:text-primary-foreground ep:group-data-[focused=true]/day:border-ring ep:group-data-[focused=true]/day:ring-ring/50 ep:dark:hover:text-accent-foreground ep:flex ep:aspect-square ep:size-auto ep:w-full ep:min-w-(--cell-size) ep:flex-col ep:gap-1 ep:leading-none ep:font-normal ep:group-data-[focused=true]/day:relative ep:group-data-[focused=true]/day:z-10 ep:group-data-[focused=true]/day:ring-[3px] ep:data-[range-end=true]:rounded-sm ep:data-[range-end=true]:rounded-r-md ep:data-[range-middle=true]:rounded-none ep:data-[range-start=true]:rounded-sm ep:data-[range-start=true]:rounded-l-md ep:[&>span]:text-xs ep:[&>span]:opacity-70",
         defaultClassNames.day,
         className
       )}
