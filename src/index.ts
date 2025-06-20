@@ -54,7 +54,7 @@ export {
 export { RadioGroup, RadioGroupItem } from "@/components/radio-group";
 export { ScrollArea, ScrollBar } from "@/components/scroll-area";
 export { Select } from "@/components/select";
-export type { SelectOption } from "@/components/select";
+export { Separator } from "@/components/separator";
 export {
   Sheet,
   SheetTrigger,
