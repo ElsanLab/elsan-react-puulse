@@ -14,7 +14,7 @@ interface StoryArgs {
 }
 
 const meta = {
-  title: "Forms/DropdownMenu",
+  title: "Components/DropdownMenu",
   component: DropdownMenu,
   argTypes: {},
 } satisfies Meta<typeof DropdownMenu>;

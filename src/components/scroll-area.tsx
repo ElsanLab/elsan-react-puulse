@@ -1,13 +1,7 @@
-import * as React from "react";
-import { ScrollArea as ScrollAreaPrimitive } from "radix-ui";
+import * as React from "react"
+import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 
-import { cn } from "@/lib/utils";
-
-/* CHANGES FROM DEFAULT SHADCN
- *
- * fixed prefix placement
- *
- */
+import { cn } from "@/lib/utils"
 
 function ScrollArea({
   className,
@@ -29,7 +23,7 @@ function ScrollArea({
       <ScrollBar />
       <ScrollAreaPrimitive.Corner />
     </ScrollAreaPrimitive.Root>
-  );
+  )
 }
 
 function ScrollBar({
@@ -56,7 +50,7 @@ function ScrollBar({
         className="ep:bg-border ep:relative ep:flex-1 ep:rounded-full"
       />
     </ScrollAreaPrimitive.ScrollAreaScrollbar>
-  );
+  )
 }
 
-export { ScrollArea, ScrollBar };
+export { ScrollArea, ScrollBar }
