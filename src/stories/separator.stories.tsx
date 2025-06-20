@@ -7,7 +7,7 @@ interface StoryArgs {
 }
 
 const meta = {
-  title: "Forms/Separator",
+  title: "Components/Separator",
   component: Separator,
   argTypes: {},
 } satisfies Meta<typeof Separator>;
