@@ -17,6 +17,7 @@ function Calendar({
   buttonVariant = "ghost",
   formatters,
   components,
+  mode = "single",
   ...props
 }: React.ComponentProps<typeof DayPicker> & {
   buttonVariant?: React.ComponentProps<typeof Button>["variant"];
@@ -25,6 +26,7 @@ function Calendar({
 
   return (
     <DayPicker
+      mode={mode}
       showOutsideDays={showOutsideDays}
       className={cn(
         "ep:bg-background ep:group/calendar ep:p-3 ep:[--cell-size:--spacing(8)] ep:[[data-slot=card-content]_&]:bg-transparent ep:[[data-slot=popover-content]_&]:bg-transparent",
