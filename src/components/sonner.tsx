@@ -1,9 +1,16 @@
+import {
+  faCheckCircle,
+  faExclamationTriangle,
+  faInfoCircle,
+  faSpinner,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "next-themes";
 import { Toaster as Sonner, ToasterProps } from "sonner";
 
 /* CHANGES FROM DEFAULT SHADCN
  *
- * fixed prefix placement
  * Restyled completely
  *
  */
@@ -19,22 +26,23 @@ const Toaster = ({ ...props }: ToasterProps) => {
         unstyled: true,
         classNames: {
           toast:
-            "ep:group toast ep:shadow-lg ep:border-b-4 ep:rounded-sm ep:bg-popover ep:text-popover-foreground ep:pt-4 ep:pb-6 ep:pl-6 ep:pr-3 ep:flex ep:gap-x-4",
-          title: "ep:text-xs",
+            "ep:group toast ep:text-secondary-foreground ep:bodyXS ep:shadow-lg ep:border-b-4 ep:rounded-sm ep:bg-popover ep:text-popover-foreground ep:pt-4 ep:pb-6 ep:pl-6 ep:pr-3 ep:flex ep:gap-x-4 ep:flex ep:items-center",
+          title: "",
           default: "",
           description: "ep:text-xs ep:text-popover-foreground!",
-          loader: "",
-          closeButton: "",
+          loader: "ep:left-5!",
+          closeButton: "ep:text-sm ep:bg-background! ep:text-foreground!",
           cancelButton: "",
           actionButton: "",
           error: "ep:border-destructive-light-foreground toast-error",
-          info: "ep:border-info-light-foreground toast-info",
-          success: "ep:border-success-light-foreground toast-success",
-          warning: "ep:border-warning-light-foreground toast-warning",
+          info: "ep:border-info-foreground toast-info",
+          success: "ep:border-success-foreground toast-success",
+          warning: "ep:border-warning-foreground toast-warning",
           loading: "",
           content: "",
-          icon: "ep:group-[.toast-success]:text-success-light-foreground ep:group-[.toast-info]:text-info-light-foreground ep:group-[.toast-error]:text-destructive-light-foreground ep:group-[.toast-info]:text-info-light-foreground ep:group-[.toast-warning]:text-warning-light-foreground",
+          icon: "ep:text-xl ep:group-[.toast-success]:text-success-foreground ep:group-[.toast-info]:text-info-foreground ep:group-[.toast-error]:text-destructive-light-foreground ep:group-[.toast-warning]:text-warning-foreground",
         },
+
         // style: {
         //   background: "var(--success-light)",
         //   color: "var(--success-light-foreground)",
@@ -49,9 +57,18 @@ const Toaster = ({ ...props }: ToasterProps) => {
         //   success: "ep:bg-success! ep:text-success-foreground!",
         // },
       }}
+      icons={{
+        success: <FontAwesomeIcon icon={faCheckCircle} />,
+        info: <FontAwesomeIcon icon={faInfoCircle} />,
+        warning: <FontAwesomeIcon icon={faExclamationTriangle} />,
+        error: <FontAwesomeIcon icon={faExclamationTriangle} />,
+        loading: <FontAwesomeIcon icon={faSpinner} spin />,
+        close: <FontAwesomeIcon icon={faTimes} />,
+      }}
       {...props}
     />
   );
 };
 
 export { Toaster };
+export { toast } from "sonner";

@@ -1,13 +1,17 @@
 import { Button } from "@/components/button";
-import { Toaster } from "@/components/sonner";
+import { toast, Toaster } from "@/components/sonner";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { toast } from "sonner";
 
 interface ToasterStoryArgs {
   text: string;
+  position?:
+    | "top-left"
+    | "top-center"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-center"
+    | "bottom-right";
   description: string;
-  withAction: boolean;
-  color: "success" | "error" | "warning" | "info";
 }
 
 const meta = {
@@ -27,13 +31,27 @@ const meta = {
         type: "text",
       },
     },
-    color: {
+    position: {
       control: {
         type: "select",
       },
-      options: ["info", "success", "warning", "error"],
+      options: [
+        "top-left",
+        "top-center",
+        "top-right",
+        "bottom-left",
+        "bottom-center",
+        "bottom-right",
+      ],
+    },
+    color: {
       table: {
-        defaultValue: { summary: "info" },
+        disable: true,
+      },
+    },
+    withAction: {
+      table: {
+        disable: true,
       },
     },
   },
@@ -48,31 +66,47 @@ type Story = StoryObj<ToasterStoryArgs>;
 
 export const Default: Story = {
   args: {
-    text: "Event has been created lala ^plzeop kzfpj f jzepofj zefozp zk zepok ",
+    text: "Hello i am a toast",
+    position: "bottom-center",
     description: "",
-    withAction: true,
-    color: "info",
   },
   render: function Render(args) {
     return (
-      <>
+      <div className="ep:grid ep:grid-cols-2 ep:md:grid-cols-3 ep:gap-4">
+        {["info", "success", "warning", "error"].map((color) => (
+          <Button
+            key={color}
+            variant="tertiary"
+            onClick={() =>
+              toast[color](args.text, {
+                description: args.description,
+              })
+            }
+          >
+            {color}
+          </Button>
+        ))}
         <Button
-          variant="outline"
-          onClick={() =>
-            toast[args.color](args.text, {
-              description: args.description,
-              action: args.withAction
-                ? {
-                    label: "Undo",
-                    onClick: () => alert("Undo"),
-                  }
-                : undefined,
-            })
-          }
+          variant="tertiary"
+          onClick={() => {
+            const myPromise = new Promise<{ name: string }>((resolve) => {
+              setTimeout(() => {
+                resolve({ name: "My toast" });
+              }, 3000);
+            });
+
+            toast.promise(myPromise, {
+              loading: "Sauvegarde des données en cours...",
+              success: (data: { name: string }) => {
+                return `${data.name} toast has been added`;
+              },
+              error: "Error",
+            });
+          }}
         >
-          Show toast
+          Promise
         </Button>
-      </>
+      </div>
     );
   },
 };
