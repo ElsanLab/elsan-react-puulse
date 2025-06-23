@@ -1,12 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/alert";
-import {
-  CircleAlert,
-  CircleCheck,
-  InfoIcon,
-  TriangleAlert,
-} from "lucide-react";
 
 interface AlertStoryArgs {
   variant: "info" | "success" | "warning" | "destructive";
