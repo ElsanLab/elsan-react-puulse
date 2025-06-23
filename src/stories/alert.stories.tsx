@@ -41,32 +41,11 @@ export const Default: Story = {
     title: "Heads up!",
     description:
       "You can add components and dependencies to your app using the cli.",
-    withIcon: true,
   },
   render: function Render(args) {
-    let Icon = InfoIcon;
-
-    switch (args.variant) {
-      case "info":
-        Icon = InfoIcon;
-        break;
-      case "success":
-        Icon = CircleCheck;
-        break;
-      case "warning":
-        Icon = TriangleAlert;
-        break;
-      case "destructive":
-        Icon = CircleAlert;
-        break;
-      default:
-        break;
-    }
-
     return (
       <>
         <Alert variant={args.variant}>
-          {args.withIcon && <Icon />}
           {args.title && <AlertTitle>{args.title}</AlertTitle>}
           <AlertDescription>{args.description}</AlertDescription>
         </Alert>
