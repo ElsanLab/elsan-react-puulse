@@ -4,7 +4,12 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react";
-import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker";
+import {
+  DayButton,
+  DayPicker,
+  DayPickerProps,
+  getDefaultClassNames,
+} from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/button";
@@ -17,16 +22,14 @@ function Calendar({
   buttonVariant = "ghost",
   formatters,
   components,
-  mode = "single",
   ...props
-}: React.ComponentProps<typeof DayPicker> & {
+}: DayPickerProps & {
   buttonVariant?: React.ComponentProps<typeof Button>["variant"];
 }) {
   const defaultClassNames = getDefaultClassNames();
 
   return (
     <DayPicker
-      mode={mode}
       showOutsideDays={showOutsideDays}
       className={cn(
         "ep:bg-background ep:group/calendar ep:p-3 ep:[--cell-size:--spacing(8)] ep:[[data-slot=card-content]_&]:bg-transparent ep:[[data-slot=popover-content]_&]:bg-transparent",

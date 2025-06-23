@@ -104,6 +104,8 @@ export const Default: Story = {
     showOutsideDays: true,
     fixedWeeks: false,
     locale: "fr",
+    mode: "single",
+    numberOfMonths: 1,
   },
   render: (args) => {
     const [selected, setSelected] = useState<
