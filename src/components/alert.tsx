@@ -1,11 +1,5 @@
 import * as React from "react";
 import { cva } from "class-variance-authority";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faExclamationTriangle,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
 import { cn } from "@/lib/utils";
 
 /* CHANGES FROM DEFAULT SHADCN
@@ -52,29 +46,9 @@ function Alert({
       className={cn(alertVariants({ variant }), className)}
       {...props}
     >
-      <VariantIcon variant={variant} />
       {children}
     </div>
   );
-}
-
-function VariantIcon({
-  variant,
-}: {
-  variant?: "info" | "success" | "warning" | "destructive";
-}) {
-  switch (variant) {
-    case "info":
-      return <FontAwesomeIcon icon={faInfoCircle} />;
-    case "success":
-      return <FontAwesomeIcon icon={faCheckCircle} />;
-    case "warning":
-      return <FontAwesomeIcon icon={faExclamationTriangle} />;
-    case "destructive":
-      return <FontAwesomeIcon icon={faExclamationTriangle} />;
-    default:
-      return null;
-  }
 }
 
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {

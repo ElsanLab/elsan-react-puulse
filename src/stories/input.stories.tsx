@@ -7,6 +7,7 @@ interface StoryArgs {
   placeholder: string;
   disabled: boolean;
   withIcon: boolean;
+  invalid: boolean;
 }
 
 const meta = {
@@ -41,6 +42,17 @@ const meta = {
         },
       },
     },
+    invalid: {
+      control: {
+        type: "boolean",
+      },
+      description: "Set input fiel as invalid.",
+      table: {
+        defaultValue: {
+          summary: "false",
+        },
+      },
+    },
   },
 } satisfies Meta<typeof Input>;
 
@@ -52,8 +64,15 @@ export const Default: Story = {
   args: {
     placeholder: "Email",
     disabled: false,
+    invalid: false,
   },
   render: function Render(args) {
-    return <Input {...args} icon={args.withIcon ? <Mail /> : undefined} />;
+    return (
+      <Input
+        {...args}
+        icon={args.withIcon ? <Mail /> : undefined}
+        aria-invalid={args.invalid}
+      />
+    );
   },
 };

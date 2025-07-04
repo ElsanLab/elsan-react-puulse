@@ -62,6 +62,8 @@
 
   --color-input: var(--input);
   --color-input-foreground: var(--input-foreground);
+  --color-input-border: var(--input-border);
+  --color-input-placeholder: var(--input-placeholder);
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);

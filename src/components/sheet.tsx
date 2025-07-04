@@ -1,17 +1,13 @@
 import * as React from "react";
-import { Dialog as SheetPrimitive } from "radix-ui";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { ScrollArea } from "./scroll-area";
 
 /* CHANGES FROM DEFAULT SHADCN
  *
- * Created SheetBody component
- * Added size variant
- * Changed padding handling
- * fixed prefix placement
- *
+ * - add SheetBody
+ * - remove side prop and styles
  */
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
@@ -54,11 +50,11 @@ function SheetOverlay({
 
 function SheetContent({
   className,
+  size = "tight",
   children,
-  side = "right",
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
-  side?: "top" | "right" | "bottom" | "left";
+  size?: "tight" | "mid" | "full";
 }) {
   return (
     <SheetPortal>
@@ -67,14 +63,10 @@ function SheetContent({
         data-slot="sheet-content"
         className={cn(
           "ep:bg-background ep:data-[state=open]:animate-in ep:data-[state=closed]:animate-out ep:fixed ep:z-50 ep:flex ep:flex-col ep:gap-4 ep:shadow-lg ep:transition ep:ease-in-out ep:data-[state=closed]:duration-300 ep:data-[state=open]:duration-500",
-          side === "right" &&
-            "ep:data-[state=closed]:slide-out-to-right ep:data-[state=open]:slide-in-from-right ep:inset-y-0 ep:right-0 ep:h-full ep:w-3/4 ep:border-l ep:sm:max-w-sm",
-          side === "left" &&
-            "ep:data-[state=closed]:slide-out-to-left ep:data-[state=open]:slide-in-from-left ep:inset-y-0 ep:left-0 ep:h-full ep:w-3/4 ep:border-r ep:sm:max-w-sm",
-          side === "top" &&
-            "ep:data-[state=closed]:slide-out-to-top ep:data-[state=open]:slide-in-from-top ep:inset-x-0 ep:top-0 ep:h-auto ep:border-b",
-          side === "bottom" &&
-            "ep:data-[state=closed]:slide-out-to-bottom ep:data-[state=open]:slide-in-from-bottom ep:inset-x-0 ep:bottom-0 ep:h-auto ep:border-t",
+          "ep:data-[state=closed]:slide-out-to-right ep:data-[state=open]:slide-in-from-right ep:inset-y-0 ep:right-0 ep:h-full ep:border-l ep:w-[90%]",
+          size === "tight" && "ep:md:w-1/3",
+          size === "mid" && "ep:md:w-1/2",
+          size === "full" && "ep:md:w-full",
           className
         )}
         {...props}
@@ -93,20 +85,19 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="sheet-header"
-      className={cn(
-        "ep:flex ep:flex-col ep:gap-1.5 ep:mx-6 ep:mt-6",
-        className
-      )}
+      className={cn("ep:flex ep:flex-col ep:gap-1.5 ep:px-4 ep:pt-4", className)}
       {...props}
     />
   );
 }
 
-function SheetBody(props: React.ComponentProps<"div">) {
+function SheetBody({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <ScrollArea className="ep:flex-1 ep:overflow-y-auto">
-      <div className="ep:flex-1 ep:mx-6" {...props} />
-    </ScrollArea>
+    <div
+      data-slot="sheet-body"
+      className={cn("ep:flex-1 ep:px-4 ep:pb-4 ep:overflow-y-auto", className)}
+      {...props}
+    />
   );
 }
 
@@ -115,7 +106,7 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sheet-footer"
       className={cn(
-        "ep:mt-auto ep:flex ep:flex-col ep:gap-2 ep:mx-6 ep:mb-6",
+        "ep:mt-auto ep:flex ep:flex-col ep:gap-2 ep:px-4 ep:pb-4",
         className
       )}
       {...props}

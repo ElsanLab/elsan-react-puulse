@@ -45,10 +45,12 @@ export const Default: Story = {
   },
   render: function Render(args) {
     return (
+      <>
       <Badge variant={args.variant}>
         {args.withIcon && <User />}
         {args.text}
       </Badge>
+      </>
     );
   },
 };

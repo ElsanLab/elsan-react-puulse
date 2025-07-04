@@ -72,7 +72,12 @@
   --card-foreground: var(--puulse-sand-950);
 
   --input: var(--puulse-sand-50);
-  --input-foreground: var(--puulse-sand-800);
+  --input-foreground: var(--puulse-sand-950);
+  --input-border: var(--puulse-sand-300);
+  --input-placeholder: var(--puulse-sand-900);
+
+
+  
 
   --sidebar: var(--puulse-sand-100);
   --sidebar-foreground: var(--puulse-sand-950);
@@ -137,7 +142,7 @@
   --muted-foreground: var(--puulse-sand-900);
   --muted-border: var(--puulse-sand-alpha-50);
 
-  --popover: var(--puulse-sand-200);
+  --popover: var(--puulse-sand-100);
   --popover-foreground: var(--puulse-sand-950);
   --popover-border: var(--puulse-sand-500);
 

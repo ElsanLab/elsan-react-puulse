@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 interface StoryArgs {
   placeholder: string;
   disabled: boolean;
+  invalid: boolean;
 }
 
 const meta = {
@@ -20,8 +21,9 @@ export const Default: Story = {
   args: {
     placeholder: "Write some texte here...",
     disabled: false,
+    invalid: false,
   },
   render: function Render(args) {
-    return <Textarea {...args} />;
+    return <Textarea {...args} aria-invalid={args.invalid} />;
   },
 };

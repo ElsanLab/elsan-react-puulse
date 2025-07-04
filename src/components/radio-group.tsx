@@ -33,8 +33,8 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        "ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:aria-invalid:ring-destructive/20 ep:dark:aria-invalid:ring-destructive/40 ep:aria-invalid:border-destructive ep:dark:bg-input/30 ep:aspect-square ep:size-4 ep:shrink-0 ep:rounded-full ep:transition-[color,box-shadow] ep:outline-none ep:focus-visible:ring-[3px] ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
-        "ep:border-border ep:border ep:bg-action ep:data-[state=checked]:bg-primary ep:data-[state=checked]:border-primary ep:flex ep:items-center ep:justify-center",
+        "ep:focus-visible:border-ring ep:focus-visible:ring-ring/50 ep:aria-invalid:ring-destructive/20 ep:aria-invalid:border-destructive ep:aspect-square ep:size-4 ep:shrink-0 ep:rounded-full ep:transition-[color,box-shadow] ep:outline-none ep:focus-visible:ring-[3px] ep:disabled:cursor-not-allowed ep:disabled:opacity-50",
+        "ep:border-input-border ep:border ep:bg-input ep:data-[state=checked]:bg-primary ep:data-[state=checked]:border-primary ep:flex ep:items-center ep:justify-center",
         className
       )}
       {...props}

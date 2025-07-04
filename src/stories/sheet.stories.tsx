@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/button";
 
 interface StoryArgs {
-  size: "sm" | "md" | "lg" | "xl";
+  size: "tight" | "mid" | "full";
   title: string;
   description: string;
   body: string;
@@ -36,7 +36,7 @@ export const Default: Story = {
     size: {
       description: "Width of the sheet.",
       control: { type: "radio" },
-      options: ["sm", "md", "lg", "xl"],
+      options: ["tight", "mid", "full"],
     },
     title: {
       description: "Change or remove the sheet's title",
@@ -56,7 +56,7 @@ export const Default: Story = {
     },
   },
   args: {
-    size: "md",
+    size: "tight",
     title: "Are you absolutely sure?",
     description:
       "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
@@ -87,7 +87,9 @@ Vivamus est libero, pellentesque non mattis eget, vulputate vel nibh. Aliquam et
           {args.body && <SheetBody>{args.body}</SheetBody>}
           {args.footer && (
             <SheetFooter>
-              <SheetClose>Close</SheetClose>
+              <SheetClose asChild>
+                <Button variant="primary">Close</Button>
+              </SheetClose>
             </SheetFooter>
           )}
         </SheetContent>

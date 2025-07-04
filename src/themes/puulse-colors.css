@@ -73,7 +73,7 @@
   --puulse-cocoa-alpha-950: oklch(0.134 0.0275 84.64 / 87.45%); /* rgba(13, 7, 0, 0.8745) */
 
   --puulse-sand-50: oklch(0.99 0.0013 106.42); /* #FDFDFC */
-  --puulse-sand-100: oklch(0.98 0.0013 106.42); /* #F9F9F8 */
+  --puulse-sand-100: oklch(0.9818 0.0013 106.42); /* #F9F9F8 */
   --puulse-sand-200: oklch(0.96 0.0017 67.8); /* #F1F0EF */
   --puulse-sand-300: oklch(0.91 0.0042 91.45); /* #E2E1DE */
   --puulse-sand-400: oklch(0.89 0.0042 91.45); /* #DAD9D6 */

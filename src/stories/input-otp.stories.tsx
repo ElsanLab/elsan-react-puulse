@@ -81,7 +81,7 @@ export const Default: Story = {
     }
 
     return (
-      <OTPField name="story">
+      <OTPField name="story" >
         {groups.map((groupLength, i) => (
           <Fragment key={i}>
             <OTPGroup>

@@ -8,6 +8,7 @@ interface StoryArgs {
   min: number;
   max: number;
   step: number;
+  invalid: boolean;
 }
 
 const meta = {
@@ -70,8 +71,9 @@ export const Default: Story = {
   args: {
     placeholder: "Number",
     disabled: false,
+    invalid: false,
   },
   render: function Render(args) {
-    return <NumberPicker {...args} />;
+    return <NumberPicker {...args} aria-invalid={args.invalid} />;
   },
 };

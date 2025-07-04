@@ -5,6 +5,7 @@ import { PasswordInput } from "@/components/passwordInput";
 interface StoryArgs {
   placeholder: string;
   disabled: boolean;
+  invalid: boolean;
 }
 
 const meta = {
@@ -39,8 +40,9 @@ export const Default: Story = {
   args: {
     placeholder: "Password",
     disabled: false,
+    invalid: false,
   },
   render: function Render(args) {
-    return <PasswordInput {...args} />;
+    return <PasswordInput {...args} aria-invalid={args.invalid} />;
   },
 };
